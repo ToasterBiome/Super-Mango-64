@@ -8,7 +8,7 @@ public class HUD : MonoBehaviour
     public Sprite[] HeartSprites;
     public Image HeartUI;
 
-    private PlayerController player;
+    public PlayerController player;
 
     void Start()
     {

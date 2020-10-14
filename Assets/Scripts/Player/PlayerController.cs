@@ -9,11 +9,14 @@ public class PlayerController : MonoBehaviour
     public int curHealth;
     public int maxHealth = 5;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         curHealth = maxHealth;
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -60,6 +63,11 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(transform.up * 15f, ForceMode.Impulse);
         }
+
+        Vector3 horizontalVelocity = rb.velocity;
+        horizontalVelocity.y = 0;
+
+        animator.SetFloat("Speed", horizontalVelocity.magnitude);
     }
 
     void Die()
