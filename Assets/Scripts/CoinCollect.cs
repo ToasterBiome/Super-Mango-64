@@ -13,7 +13,7 @@ public class CoinCollect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, 0, 90 * Time.deltaTime);
+        transform.Rotate(0, 90 * Time.deltaTime, 0);
     }
 
     private void OnTriggerEnter(Collider other)

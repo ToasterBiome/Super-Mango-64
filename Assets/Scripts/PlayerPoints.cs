@@ -20,6 +20,6 @@ public class PlayerPoints : MonoBehaviour
 
     private void OnGUI()
     {
-        GUI.Label(new Rect(20, 20, 100, 20),"Score : " + points);
+        GUI.Label(new Rect(25, 25, 100, 25),"Score : " + points);
     }
 }

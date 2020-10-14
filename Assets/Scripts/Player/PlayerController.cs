@@ -6,16 +6,28 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody rb;
 
+    public int curHealth;
+    public int maxHealth = 5;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        curHealth = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (curHealth > maxHealth)
+        {
+            curHealth = maxHealth;
+        }
+
+        if (curHealth <= 0)
+        {
+            Die();
+        }
     }
 
     private void FixedUpdate()
@@ -31,22 +43,32 @@ public class PlayerController : MonoBehaviour
 
         Vector3 moveDirection = cameraForward * Input.GetAxisRaw("Vertical") * 2f + cameraRight * Input.GetAxisRaw("Horizontal");
         Debug.Log(Input.GetAxis("Mouse X"));
-        if(Input.GetAxis("Mouse X") == 0)
+        if (Input.GetAxis("Mouse X") == 0)
         {
             rb.angularVelocity = Vector3.zero;
         }
         rb.AddForce(moveDirection * 10);
-        if(rb.velocity.magnitude > 8f)
+        if (rb.velocity.magnitude > 8f)
         {
             rb.velocity = rb.velocity.normalized * 8f;
         }
-        rb.AddRelativeTorque(0, Input.GetAxis("Mouse X"),0);
+        rb.AddRelativeTorque(0, Input.GetAxis("Mouse X"), 0);
 
         //jump
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(transform.up * 15f, ForceMode.Impulse);
         }
+    }
+
+    void Die()
+    {
+        Application.LoadLevel(Application.loadedLevel);
+    }
+
+    public void Damage(int dmg)
+    {
+        curHealth -= dmg;
     }
 }
