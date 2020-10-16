@@ -11,12 +11,55 @@ public class PlayerController : MonoBehaviour
 
     public Animator animator;
 
+    public GameObject pickupPoint;
+
+    public PickupZone pickupZone;
+
+    public GameObject targetPickup;
+
+    public GameObject currentPickup;
+    public Rigidbody pickupRB;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         curHealth = maxHealth;
         animator = GetComponentInChildren<Animator>();
+        pickupZone.controller = this;
+    }
+
+    public void PickupStart()
+    {
+        currentPickup = targetPickup;
+        Rigidbody pickupRB = currentPickup.GetComponent<Rigidbody>();
+
+        pickupRB.useGravity = false;
+        currentPickup.transform.position = pickupPoint.transform.position;
+        currentPickup.transform.parent = this.gameObject.transform;
+        pickupRB.isKinematic = true;
+        currentPickup.GetComponent<MeshCollider>().enabled = false;
+    }
+
+    public void SetPickupObject(GameObject pickupObject)
+    {
+        this.targetPickup = pickupObject;
+        this.pickupRB = targetPickup.GetComponent<Rigidbody>();
+    }
+
+    public void PickupEnd()
+    {
+
+        pickupRB.useGravity = true;
+        currentPickup.transform.parent = null;
+        currentPickup.GetComponent<MeshCollider>().enabled = true;
+        pickupRB.isKinematic = false;
+        pickupRB.AddForce(30f * transform.forward + transform.up,ForceMode.Impulse);
+
+        currentPickup = null;
+        pickupRB = null;
     }
 
     // Update is called once per frame
@@ -31,7 +74,23 @@ public class PlayerController : MonoBehaviour
         {
             Die();
         }
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            PickupStart();
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            PickupEnd();
+        }
+
+
+
+
+
     }
+
 
     private void FixedUpdate()
     {
@@ -68,6 +127,12 @@ public class PlayerController : MonoBehaviour
         horizontalVelocity.y = 0;
 
         animator.SetFloat("Speed", horizontalVelocity.magnitude);
+
+        if(currentPickup != null)
+        {
+            pickupRB.MovePosition(pickupPoint.transform.position);
+            pickupRB.MoveRotation(pickupPoint.transform.rotation);
+        }
     }
 
     void Die()
