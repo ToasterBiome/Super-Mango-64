@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public GameObject currentPickup;
     public Rigidbody pickupRB;
 
+    public bool inAir = false;
+
 
 
     // Start is called before the first frame update
@@ -78,11 +80,14 @@ public class PlayerController : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             PickupStart();
+            animator.SetTrigger("Pickup");
+            animator.SetBool("Holding", true);
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             PickupEnd();
+            animator.SetBool("Holding", false);
         }
 
 
@@ -121,6 +126,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(transform.up * 15f, ForceMode.Impulse);
+            animator.SetTrigger("Jump");
         }
 
         Vector3 horizontalVelocity = rb.velocity;
@@ -132,6 +138,16 @@ public class PlayerController : MonoBehaviour
         {
             pickupRB.MovePosition(pickupPoint.transform.position);
             pickupRB.MoveRotation(pickupPoint.transform.rotation);
+        }
+        Debug.DrawRay(transform.position, -transform.up * 0.5f, Color.red);
+        if(Physics.Raycast(transform.position,-transform.up,0.5f))
+        {
+            inAir = false;
+            animator.SetBool("isInAir", false);
+        } else
+        {
+            inAir = true;
+            animator.SetBool("isInAir", true);
         }
     }
 
