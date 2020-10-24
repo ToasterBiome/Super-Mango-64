@@ -5,23 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody rb;
-
     public int curHealth;
     public int maxHealth = 5;
-
     public Animator animator;
-
     public GameObject pickupPoint;
-
     public PickupZone pickupZone;
-
     public GameObject targetPickup;
-
     public GameObject currentPickup;
     public Rigidbody pickupRB;
-
     public bool inAir = false;
-
 
 
     // Start is called before the first frame update
@@ -90,10 +82,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Holding", false);
         }
 
-
-
-
-
     }
 
 
@@ -120,6 +108,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = rb.velocity.normalized * 8f;
         }
         rb.AddRelativeTorque(0, Input.GetAxis("Mouse X"), 0);
+        
 
         //jump
 
