@@ -196,7 +196,7 @@ namespace DWG {
 						child.gameObject.tag = destroyTag;
 						
 			            child.gameObject.AddComponent<Rigidbody>(); // This adds a rigidbody to the child game object
-			            child.rigidbody.isKinematic = true; // Set isKinematic to true so that physics aren't enabled on the child object
+			            child.GetComponent<Rigidbody>().isKinematic = true; // Set isKinematic to true so that physics aren't enabled on the child object
 			            if(checkPhysics){
 							child.gameObject.AddComponent<DWGPhysicsCheck>(); // Add the PhysicsCheck script (this checks to see if the rigidbody is asleep, if it is, it turns kinematic to true)
 						}

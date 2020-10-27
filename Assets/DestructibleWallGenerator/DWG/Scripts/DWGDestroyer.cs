@@ -16,10 +16,10 @@ public class DWGDestroyer : MonoBehaviour {
 		Vector3 explodePos = transform.position;
 		Collider[] colliders = Physics.OverlapSphere(explodePos, radius); 
 		foreach (Collider hit in colliders){
-			if(hit.collider.tag == "Destructible"){
-				if(hit.rigidbody){
-					hit.rigidbody.isKinematic = false; 
-					hit.rigidbody.AddExplosionForce(force, explodePos,radius);
+			if(hit.GetComponent<Collider>().tag == "Destructible"){
+				if(hit.GetComponent<Rigidbody>()){
+					hit.GetComponent<Rigidbody>().isKinematic = false; 
+					hit.GetComponent<Rigidbody>().AddExplosionForce(force, explodePos,radius);
 				}
 			}
 		}

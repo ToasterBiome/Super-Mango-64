@@ -37,14 +37,14 @@ public class CameraFreeRoam : MonoBehaviour {
 		float vertical = Input.GetAxis("Vertical") * speed * Time.deltaTime;
 		float jump = Input.GetAxis("Jump") * speed * Time.deltaTime;
 
-		rigidbody.AddForce(transform.forward * vertical);
-		rigidbody.AddForce(transform.right * horizontal);
-		rigidbody.AddForce(transform.up * jump);
+		GetComponent<Rigidbody>().AddForce(transform.forward * vertical);
+		GetComponent<Rigidbody>().AddForce(transform.right * horizontal);
+		GetComponent<Rigidbody>().AddForce(transform.up * jump);
 
 		if(horizontal == 0 && vertical == 0 && jump == 0){
-			if(rigidbody.velocity.magnitude > 0)
+			if(GetComponent<Rigidbody>().velocity.magnitude > 0)
 			{
-				rigidbody.velocity *= 0.9f;
+				GetComponent<Rigidbody>().velocity *= 0.9f;
 			}
 		}
 

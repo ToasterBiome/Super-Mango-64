@@ -7,11 +7,11 @@ public class DWGPhysicsCheck : MonoBehaviour {
 	private bool sleeping;
 
 	void FixedUpdate(){
-		if(rigidbody.IsSleeping()){ // Check if the rigidbody attached to this obeject is in a Sleep state
+		if(GetComponent<Rigidbody>().IsSleeping()){ // Check if the rigidbody attached to this obeject is in a Sleep state
 			if(!sleeping){ // If sleeping bool is false continue
 				timer += Time.deltaTime; // Start the timer using deltatime
 				if(timer > 2){ // If the timer is over 2 seconds continue
-					rigidbody.isKinematic = true; // Set the rigidbody to isKinematic, this sets the rigidbody to ignore physics
+					GetComponent<Rigidbody>().isKinematic = true; // Set the rigidbody to isKinematic, this sets the rigidbody to ignore physics
 					sleeping = true; // Sleeping is now true
 					timer = 0; // Reset the timer
 				}

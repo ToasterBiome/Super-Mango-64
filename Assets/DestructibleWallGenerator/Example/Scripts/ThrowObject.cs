@@ -15,7 +15,7 @@ public class ThrowObject : MonoBehaviour {
 		go.transform.localScale = new Vector3(0.5f,0.5f,0.5f);
 		go.transform.position = transform.position + transform.forward;
 		go.AddComponent<Rigidbody>(); 
-		go.rigidbody.AddForce(transform.forward * 1000f); 
+		go.GetComponent<Rigidbody>().AddForce(transform.forward * 1000f); 
 		go.AddComponent<DWGDestroyer>();
 		Destroy(go,5f);
 	}
