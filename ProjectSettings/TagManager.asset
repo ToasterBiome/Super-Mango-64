@@ -6,6 +6,17 @@ TagManager:
   tags:
   - Pickup
   - Destructible
+  - Tree
+  - Banana
+  - Grass
+  - Water
+  - Enemy
+  - Wall
+  - Gloves
+  - JumpPad
+  - Layer1
+  - Layer2
+  - Layer3
   layers:
   - Default
   - TransparentFX

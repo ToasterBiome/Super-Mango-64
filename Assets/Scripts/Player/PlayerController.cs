@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     public Rigidbody pickupRB;
     public bool inAir = false;
 
+    
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +26,8 @@ public class PlayerController : MonoBehaviour
         curHealth = maxHealth;
         animator = GetComponentInChildren<Animator>();
         pickupZone.controller = this;
+     
+
     }
 
     public void PickupStart()
@@ -88,7 +93,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         //rb.AddRelativeForce(new Vector3(Input.GetAxisRaw("Vertical") * 10f, 0, -Input.GetAxisRaw("Horizontal") * 10f));
-
+        
         Vector3 cameraForward = Camera.main.transform.forward;
         Vector3 cameraRight = Camera.main.transform.right;
         cameraForward.y = 0;
@@ -97,7 +102,7 @@ public class PlayerController : MonoBehaviour
         cameraRight.Normalize();
 
         Vector3 moveDirection = cameraForward * Input.GetAxisRaw("Vertical") * 2f + cameraRight * Input.GetAxisRaw("Horizontal");
-        Debug.Log(Input.GetAxis("Mouse X"));
+  // Will Bacchus commented this out while troubleshooting for sound as it was spamming console<3      Debug.Log(Input.GetAxis("Mouse X"));
         if (Input.GetAxis("Mouse X") == 0)
         {
             rb.angularVelocity = Vector3.zero;
@@ -116,6 +121,8 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(transform.up * 15f, ForceMode.Impulse);
             animator.SetTrigger("Jump");
+     
+           
         }
 
         Vector3 horizontalVelocity = rb.velocity;
