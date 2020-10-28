@@ -15,6 +15,12 @@ public class PlayerController : MonoBehaviour
     public Rigidbody pickupRB;
     public bool inAir = false;
 
+    [Header("Things to test!")]
+    public float jumpForce = 15f;
+    public float throwForce = 30f;
+    public float walkSpeed = 10f;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     public void PickupStart()
     {
+        if (targetPickup == null) return;
         currentPickup = targetPickup;
         Rigidbody pickupRB = currentPickup.GetComponent<Rigidbody>();
 
@@ -35,6 +42,8 @@ public class PlayerController : MonoBehaviour
         currentPickup.transform.parent = this.gameObject.transform;
         pickupRB.isKinematic = true;
         currentPickup.GetComponent<MeshCollider>().enabled = false;
+        animator.SetTrigger("Pickup");
+        animator.SetBool("Holding", true);
     }
 
     public void SetPickupObject(GameObject pickupObject)
@@ -45,15 +54,16 @@ public class PlayerController : MonoBehaviour
 
     public void PickupEnd()
     {
-
+        if (pickupRB == null) return;
         pickupRB.useGravity = true;
         currentPickup.transform.parent = null;
         currentPickup.GetComponent<MeshCollider>().enabled = true;
         pickupRB.isKinematic = false;
-        pickupRB.AddForce(30f * transform.forward + transform.up,ForceMode.Impulse);
+        pickupRB.AddForce(throwForce * transform.forward + transform.up,ForceMode.Impulse);
 
         currentPickup = null;
         pickupRB = null;
+        animator.SetBool("Holding", false);
     }
 
     // Update is called once per frame
@@ -72,14 +82,23 @@ public class PlayerController : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             PickupStart();
-            animator.SetTrigger("Pickup");
-            animator.SetBool("Holding", true);
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             PickupEnd();
-            animator.SetBool("Holding", false);
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if(!inAir)
+            {
+                rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+                animator.SetTrigger("Jump");
+                inAir = true;
+            }
+            
         }
 
     }
@@ -102,7 +121,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.angularVelocity = Vector3.zero;
         }
-        rb.AddForce(moveDirection * 10);
+        rb.AddForce(moveDirection * walkSpeed);
         if (rb.velocity.magnitude > 8f)
         {
             rb.velocity = rb.velocity.normalized * 8f;
@@ -112,11 +131,7 @@ public class PlayerController : MonoBehaviour
 
         //jump
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.AddForce(transform.up * 15f, ForceMode.Impulse);
-            animator.SetTrigger("Jump");
-        }
+        
 
         Vector3 horizontalVelocity = rb.velocity;
         horizontalVelocity.y = 0;
