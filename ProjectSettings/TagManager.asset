@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pickup
   - Destructible
+  - GlovesPickup
   layers:
   - Default
   - TransparentFX
