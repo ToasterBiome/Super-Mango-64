@@ -3,7 +3,12 @@ guid: 143af9c5d45078f479a6508e8b5e13ed
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: boulder64
+    second: {fileID: 2800000, guid: 7c76176e95a318f4fb664b94d4e83aa8, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
