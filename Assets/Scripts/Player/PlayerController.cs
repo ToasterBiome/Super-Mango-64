@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
         cameraRight.Normalize();
 
         Vector3 moveDirection = cameraForward * Input.GetAxisRaw("Vertical") * 2f + cameraRight * Input.GetAxisRaw("Horizontal");
-        Debug.Log(Input.GetAxis("Mouse X"));
+        //Debug.Log(Input.GetAxis("Mouse X"));
         if (Input.GetAxis("Mouse X") == 0)
         {
             rb.angularVelocity = Vector3.zero;
