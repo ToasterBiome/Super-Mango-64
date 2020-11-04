@@ -8059,6 +8059,27 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1571188361380394846}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1331125316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331125315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02485e5e552cab1468351db02a0abc14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capsule: {fileID: 1331125317}
+  banClip: {fileID: 8300000, guid: ed511cd135608e44e8f5a8c1d8b8db1e, type: 3}
+  gloveClip: {fileID: 8300000, guid: 37314e3aafe67c243bccfed1adc09137, type: 3}
+--- !u!136 &1331125317 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 1571188360451626902, guid: 27cded7997d496b47afafd6941322987,
+    type: 3}
+  m_PrefabInstance: {fileID: 1571188361380394846}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1331314125
 Mesh:
   m_ObjectHideFlags: 0
@@ -13828,6 +13849,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 102394739545144063, guid: 08695c5798e8f6e4cb666d97bced4896,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1331125315}
     - target: {fileID: 6240637735052012079, guid: 08695c5798e8f6e4cb666d97bced4896,
         type: 3}
       propertyPath: m_Name

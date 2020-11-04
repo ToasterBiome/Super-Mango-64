@@ -5,7 +5,9 @@ using UnityEngine;
 public class SoundTriggerBanana : MonoBehaviour
 {
     private AudioSource source;
-    public AudioClip clip;
+    public Collider capsule;
+    public AudioClip banClip;
+    public AudioClip gloveClip;
     void Start()
     {
         gameObject.AddComponent<AudioSource>();
@@ -19,15 +21,28 @@ public class SoundTriggerBanana : MonoBehaviour
     {
 
     }
+
     void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.CompareTag("Banana"))
-        {
-            Debug.Log("banana trigger");
-            source.PlayOneShot(clip);
 
-        }
 
+            if (other.gameObject.CompareTag("Banana"))
+            {
+                if (source.isPlaying != true)
+                {
+                    Debug.Log("banana trigger");
+                    source.PlayOneShot(banClip);
+                }
+            }
+            if (other.gameObject.CompareTag("GlovesPickup"))
+            {
+                if (source.isPlaying != true)
+                {
+                    Debug.Log("glove trigger");
+                    source.PlayOneShot(gloveClip);
+                }
+            }
+        
     }
 }
