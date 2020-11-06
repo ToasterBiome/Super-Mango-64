@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2718731490304891281}
   - component: {fileID: 2718731490304891283}
   - component: {fileID: 2718731490304891287}
+  - component: {fileID: 102394739545144063}
   m_Layer: 0
   m_Name: Boulder
   m_TagString: Pickup
@@ -125,3 +126,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 2
   force: 50
+--- !u!114 &102394739545144063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6240637735052012079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11766d7666692b843a041dbac6a9949c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: ed511cd135608e44e8f5a8c1d8b8db1e, type: 3}
