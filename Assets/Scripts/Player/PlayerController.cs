@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Pickup;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,11 +21,16 @@ public class PlayerController : MonoBehaviour
     public float throwForce = 30f;
     public float walkSpeed = 10f;
 
+    public GameObject gloves;
+    public GameObject hands;
+    public bool hasGloves = false;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
         curHealth = maxHealth;
         animator = GetComponentInChildren<Animator>();
@@ -34,6 +40,15 @@ public class PlayerController : MonoBehaviour
     public void PickupStart()
     {
         if (targetPickup == null) return;
+        //get type
+        PickupType type = targetPickup.GetComponent<Pickup>().type;
+        if(type == PickupType.Boulder)
+        {
+            if(!hasGloves)
+            {
+                return; //don't attempt pickup if you don't have the gloves
+            }
+        }
         currentPickup = targetPickup;
         Rigidbody pickupRB = currentPickup.GetComponent<Rigidbody>();
 
@@ -116,7 +131,6 @@ public class PlayerController : MonoBehaviour
         cameraRight.Normalize();
 
         Vector3 moveDirection = cameraForward * Input.GetAxisRaw("Vertical") * 2f + cameraRight * Input.GetAxisRaw("Horizontal");
-        Debug.Log(Input.GetAxis("Mouse X"));
         if (Input.GetAxis("Mouse X") == 0)
         {
             rb.angularVelocity = Vector3.zero;
@@ -143,8 +157,8 @@ public class PlayerController : MonoBehaviour
             pickupRB.MovePosition(pickupPoint.transform.position);
             pickupRB.MoveRotation(pickupPoint.transform.rotation);
         }
-        Debug.DrawRay(transform.position, -transform.up * 0.5f, Color.red);
-        if(Physics.Raycast(transform.position,-transform.up,0.5f))
+        Debug.DrawRay(transform.position, -transform.up * 0.75f, Color.red);
+        if(Physics.Raycast(transform.position,-transform.up,0.75f))
         {
             inAir = false;
             animator.SetBool("isInAir", false);
@@ -163,5 +177,11 @@ public class PlayerController : MonoBehaviour
     public void Damage(int dmg)
     {
         curHealth -= dmg;
+    }
+    public void EquipGloves()
+    {
+        gloves.SetActive(true);
+        hands.SetActive(false);
+        hasGloves = true;
     }
 }

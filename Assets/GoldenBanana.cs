@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class GoldenBanana : MonoBehaviour
 {
-   void OnTriggerEnter()
+   void OnTriggerEnter(Collider coll)
    {
-        GameManager.instance.Win();
+        if(coll.tag == "Player")
+        {
+            GameManager.instance.Win();
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
+        
    }
 
     void Update()

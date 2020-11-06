@@ -10,20 +10,18 @@ public class HUD : MonoBehaviour
     public Image GlovesIcon;
 
     public PlayerController player;
-    public PowerUpCollector collector;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        collector = GameObject.FindGameObjectWithTag("GlovesPickup").GetComponent<PowerUpCollector>();
         GlovesIcon.enabled = false;
     }
 
     void Update()
     {
-        HeartUI.sprite = HeartSprites[player.curHealth];
+        HeartUI.sprite = HeartSprites[player.curHealth- 1];
 
-        if (collector.hasPickedUpGloves)
+        if (player.hasGloves)
         {
             GlovesIcon.enabled = true;
         }

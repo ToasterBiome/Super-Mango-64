@@ -20,10 +20,11 @@ public class PowerUpCollector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Player")
+        Debug.Log("triggered");
+        if (other.tag == "Player")
         {
             hasPickedUpGloves = true;
-
+            other.GetComponent<PlayerController>().EquipGloves();
             Destroy(gameObject);
         }
     }
