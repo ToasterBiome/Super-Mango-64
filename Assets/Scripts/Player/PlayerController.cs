@@ -169,7 +169,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Die()
+    public void Die()
     {
         Application.LoadLevel(Application.loadedLevel);
     }
