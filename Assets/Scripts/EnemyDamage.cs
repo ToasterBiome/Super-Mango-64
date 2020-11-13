@@ -19,17 +19,18 @@ public class EnemyDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) ;
-        player.Damage(1);
-        // play sound if player collides 
-       
+        if (other.tag == "Player")
+        {
+            other.GetComponent<PlayerController>().Damage(1);
+
+            /*
+            Vector3 force = other.transform.position - transform.position;
+            Vector3 clampedForce = new Vector3(force.x, 0.1f, force.y);
+            other.GetComponent<Rigidbody>().AddForce(clampedForce * 32f,ForceMode.Impulse);
+            */
             Debug.Log("sound should play");
-
-            
-
             source.PlayOneShot(clip);
-
-        
+        }
     }
     
 }

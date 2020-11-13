@@ -63,13 +63,21 @@ public class PlayerController : MonoBehaviour
 
     public void SetPickupObject(GameObject pickupObject)
     {
-        this.targetPickup = pickupObject;
-        this.pickupRB = targetPickup.GetComponent<Rigidbody>();
+        if(pickupObject != null)
+        {
+            this.targetPickup = pickupObject;
+            this.pickupRB = targetPickup.GetComponent<Rigidbody>();
+        } else
+        {
+            this.targetPickup = null;
+            this.pickupRB = null;
+        }
+        
     }
 
     public void PickupEnd()
     {
-        if (pickupRB == null) return;
+        if (currentPickup == null) return;
         pickupRB.useGravity = true;
         currentPickup.transform.parent = null;
         currentPickup.GetComponent<MeshCollider>().enabled = true;
@@ -130,29 +138,31 @@ public class PlayerController : MonoBehaviour
         cameraForward.Normalize();
         cameraRight.Normalize();
 
+        //Vector3 moveDirection = cameraForward * Input.GetAxisRaw("Vertical") * 2f;
         Vector3 moveDirection = cameraForward * Input.GetAxisRaw("Vertical") * 2f + cameraRight * Input.GetAxisRaw("Horizontal");
         if (Input.GetAxis("Mouse X") == 0)
         {
             rb.angularVelocity = Vector3.zero;
         }
-        rb.AddForce(moveDirection * walkSpeed);
+        //rb.AddForce(moveDirection * walkSpeed);
+        rb.velocity = new Vector3(0,rb.velocity.y,0) + moveDirection * walkSpeed;
         if (rb.velocity.magnitude > 8f)
         {
             rb.velocity = rb.velocity.normalized * 8f;
         }
-        rb.AddRelativeTorque(0, Input.GetAxis("Mouse X"), 0);
-        
+        rb.AddRelativeTorque(0, Input.GetAxis("Mouse X") * 0.8f, 0);
+
 
         //jump
 
-        
+
 
         Vector3 horizontalVelocity = rb.velocity;
         horizontalVelocity.y = 0;
 
         animator.SetFloat("Speed", horizontalVelocity.magnitude);
 
-        if(currentPickup != null)
+        if(currentPickup != null && pickupRB != null)
         {
             pickupRB.MovePosition(pickupPoint.transform.position);
             pickupRB.MoveRotation(pickupPoint.transform.rotation);
