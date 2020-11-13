@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1707858176151454710}
   - component: {fileID: 6427802475742906950}
   - component: {fileID: 4235166028651625196}
+  - component: {fileID: 800145890}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Pickup
@@ -241,3 +242,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &800145890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8123820142313473527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d812f99c5696b44802c94a894914cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
