@@ -22,7 +22,11 @@ public class PickupZone : MonoBehaviour
     {
         if(other.tag == "Pickup")
         {
-            controller.SetPickupObject(other.gameObject);
+            if(controller.pickupRB == null)
+            {
+                controller.SetPickupObject(other.gameObject);
+            }
+            
         }
     }
 

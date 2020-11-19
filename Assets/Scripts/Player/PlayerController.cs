@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
     public GameObject hands;
     public bool hasGloves = false;
 
+    public float damageCooldown = 0;
+    public float maxDamageCooldown = 1f;
+
 
 
     // Start is called before the first frame update
@@ -50,7 +53,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         currentPickup = targetPickup;
-        Rigidbody pickupRB = currentPickup.GetComponent<Rigidbody>();
+        pickupRB = currentPickup.GetComponent<Rigidbody>();
 
         pickupRB.useGravity = false;
         currentPickup.transform.position = pickupPoint.transform.position;
@@ -66,23 +69,38 @@ public class PlayerController : MonoBehaviour
         if(pickupObject != null)
         {
             this.targetPickup = pickupObject;
-            this.pickupRB = targetPickup.GetComponent<Rigidbody>();
         } else
         {
             this.targetPickup = null;
-            this.pickupRB = null;
         }
         
     }
 
-    public void PickupEnd()
+    public void PickupThrow()
     {
         if (currentPickup == null) return;
         pickupRB.useGravity = true;
         currentPickup.transform.parent = null;
         currentPickup.GetComponent<MeshCollider>().enabled = true;
         pickupRB.isKinematic = false;
-        pickupRB.AddForce(throwForce * transform.forward + transform.up,ForceMode.Impulse);
+
+        pickupRB.AddForce(throwForce * transform.forward + transform.up, ForceMode.VelocityChange);
+
+        currentPickup = null;
+        pickupRB = null;
+        animator.SetTrigger("PickupThrow");
+        animator.SetBool("Holding", false);
+
+    }
+
+    public void PickupDrop()
+    {
+        if (currentPickup == null) return;
+        pickupRB.useGravity = true;
+        currentPickup.transform.parent = null;
+        currentPickup.transform.position = pickupZone.transform.position;
+        currentPickup.GetComponent<MeshCollider>().enabled = true;
+        pickupRB.isKinematic = false;
 
         currentPickup = null;
         pickupRB = null;
@@ -102,14 +120,29 @@ public class PlayerController : MonoBehaviour
             Die();
         }
 
-        if(Input.GetMouseButtonDown(0))
+        if(damageCooldown > 0)
         {
-            PickupStart();
+            damageCooldown -= Time.deltaTime;
+            if(damageCooldown < 0)
+            {
+                damageCooldown = 0;
+            }
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if(Input.GetMouseButtonDown(0))
         {
-            PickupEnd();
+            if(animator.GetBool("Holding"))
+            {
+                PickupDrop();
+            } else
+            {
+                PickupStart();
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            PickupThrow();
 
         }
 
@@ -186,7 +219,12 @@ public class PlayerController : MonoBehaviour
 
     public void Damage(int dmg)
     {
-        curHealth -= dmg;
+        if(damageCooldown == 0)
+        {
+            curHealth -= dmg;
+        }
+        
+        
     }
     public void EquipGloves()
     {
