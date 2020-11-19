@@ -5352,6 +5352,8 @@ MonoBehaviour:
   gloves: {fileID: 2662749375075547741}
   hands: {fileID: 8564489599618350615}
   hasGloves: 0
+  damageCooldown: 0
+  maxDamageCooldown: 1
 --- !u!54 &3134579579735395003
 Rigidbody:
   m_ObjectHideFlags: 0
