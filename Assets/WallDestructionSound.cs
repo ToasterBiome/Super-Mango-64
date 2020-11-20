@@ -19,6 +19,6 @@ public class WallDestructionSound : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-       
+        
     }
 }
