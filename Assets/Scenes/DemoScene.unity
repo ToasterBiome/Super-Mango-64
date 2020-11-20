@@ -4288,6 +4288,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 628898378019779921, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 628898378019779921, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: Feet_Grass
+      value: 
+      objectReference: {fileID: 8300000, guid: 8f32a208ad5911b43a718c1d6ea42d52, type: 3}
     - target: {fileID: 2122563976, guid: 27cded7997d496b47afafd6941322987, type: 3}
       propertyPath: HeartSprites.Array.size
       value: 6
@@ -4322,16 +4332,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 366615594880959974, guid: 49a5f6e0f20faeb4fbd0a3b26c7c6da5,
         type: 3}
-    - target: {fileID: 628898378019779921, guid: 27cded7997d496b47afafd6941322987,
-        type: 3}
-      propertyPath: pickupSound
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 628898378019779921, guid: 27cded7997d496b47afafd6941322987,
-        type: 3}
-      propertyPath: Feet_Grass
-      value: 
-      objectReference: {fileID: 8300000, guid: 8f32a208ad5911b43a718c1d6ea42d52, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27cded7997d496b47afafd6941322987, type: 3}
 --- !u!1 &325623271
@@ -10402,7 +10402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &874642866
 BoxCollider:
   m_ObjectHideFlags: 0
