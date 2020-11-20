@@ -9,18 +9,14 @@ public class DeathBarrier : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Fix later
-        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        var Player = other.GetComponent<PlayerController>();
-
         if (other.CompareTag("Player"))
         {
-            Player.Die();
+            player.Die();
         }
     }
-
 }

@@ -9,8 +9,6 @@ public class RespawnableObject : MonoBehaviour
     private Quaternion originalRotation;
     private Rigidbody rb;
 
-    public float weight;
-
     // Start is called before the first frame update
     void Start()
     {
