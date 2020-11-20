@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    private PlayerController player;
     // add audiocomponent and audioclip array
     private AudioSource source;
     public AudioClip clip;
@@ -12,7 +11,6 @@ public class EnemyDamage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         // tell the computer which audiosource to use
         source = GetComponent<AudioSource>();
     }

@@ -23,8 +23,8 @@ public class HitboxController : MonoBehaviour
             other.gameObject.GetComponent<PlayerController>().Damage(box.damage);
             Vector3 force = other.transform.position - box.transform.position;
             force = force.normalized;
-            Vector3 clampedForce = new Vector3(force.x, 0.025f, force.z);
-            other.GetComponent<Rigidbody>().velocity = clampedForce * 128f;
+            Vector3 clampedForce = new Vector3(force.x, 0.125f, force.z);
+            other.GetComponent<PlayerController>().extraForce = clampedForce * 8;
             Debug.Log(clampedForce);
         }
     }
