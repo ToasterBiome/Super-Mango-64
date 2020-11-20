@@ -6,6 +6,9 @@ public class ButtonActivation : MonoBehaviour
 {
     [SerializeField] GameObject spawnable;
 
+    public int pressureWeight;
+    private int cumulativeWeight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,22 +18,34 @@ public class ButtonActivation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Pickup"))
+        if(pressureWeight == cumulativeWeight)
         {
             spawnable.SetActive(true);
+        }
+
+        if (pressureWeight != cumulativeWeight)
+        {
+            spawnable.SetActive(false);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var worldObject = other.GetComponent<RespawnableObject>();
+
+        if (other.CompareTag("Pickup"))
+        {
+            cumulativeWeight += worldObject.weight;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
+        var worldObject = other.GetComponent<RespawnableObject>();
+
         if (other.CompareTag("Pickup"))
         {
-            spawnable.SetActive(false);
+            cumulativeWeight -= worldObject.weight;
         }
     }
 }

@@ -399,6 +399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnable: {fileID: 0}
+  pressureWeight: 2
 --- !u!1 &1738191128400211975
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1738191128400211974}
   m_Layer: 0
-  m_Name: Button
+  m_Name: LightWeightButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
