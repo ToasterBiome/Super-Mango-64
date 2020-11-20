@@ -142,6 +142,7 @@ MonoBehaviour:
   clips:
   - {fileID: 8300000, guid: edf138223c3902b4793e16c251cc49c9, type: 3}
   - {fileID: 8300000, guid: cf8f6d3c9cc75e7478c59699991158b0, type: 3}
+  Wallclip: {fileID: 8300000, guid: a74ad5f71bb69af4088e55aa205ef3bf, type: 3}
 --- !u!82 &2540324418374050967
 AudioSource:
   m_ObjectHideFlags: 0
@@ -250,3 +251,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d812f99c5696b44802c94a894914cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weight: 0

@@ -6,6 +6,7 @@ public class BarrelCollision : MonoBehaviour
 {
     private AudioSource source;
     public AudioClip[] clips;
+    public AudioClip Wallclip;
 
     void Start()
     {
@@ -25,15 +26,24 @@ public class BarrelCollision : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player") != true)
         {
-            Debug.Log("KASUDKASHD");
+           
             if (source.isPlaying != true)
             {
+                if (collision.gameObject.CompareTag("Wall"))
+                {
+                   
 
-                AudioClip clip = GetRandomClip(clips);
+                    source.PlayOneShot(Wallclip);
+                }
+                else
+                {
+                    AudioClip clip = GetRandomClip(clips);
 
-                source.PlayOneShot(clip);
-            }
+                    source.PlayOneShot(clip);
+                }
+                }
         }
+       
 
 
 

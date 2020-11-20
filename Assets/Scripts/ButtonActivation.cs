@@ -9,6 +9,8 @@ public class ButtonActivation : MonoBehaviour
     public int pressureWeight;
     private int cumulativeWeight;
 
+    public AudioSource source;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class ButtonActivation : MonoBehaviour
         if(pressureWeight == cumulativeWeight)
         {
             spawnable.SetActive(true);
+            
         }
 
         if (pressureWeight != cumulativeWeight)
@@ -36,6 +39,7 @@ public class ButtonActivation : MonoBehaviour
         if (other.CompareTag("Pickup"))
         {
             cumulativeWeight += worldObject.weight;
+            source.Play();
         }
     }
 

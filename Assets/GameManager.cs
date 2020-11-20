@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
     public GameObject youWinText;
     public float resetDelay;
-
+    public AudioSource music;
+    public AudioSource win;
     private void Awake()
     {
         if (instance == null)
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviour
         youWinText.SetActive (true);
         Time.timeScale = .5f;
         Invoke("Reset", resetDelay);
+        music.Stop();
+        win.Play();
     }
 
     private void Reset()

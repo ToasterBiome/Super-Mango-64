@@ -9,6 +9,7 @@ TagManager:
   - GlovesPickup
   - Fire
   - Banana
+  - Wall
   layers:
   - Default
   - TransparentFX
