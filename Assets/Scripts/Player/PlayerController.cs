@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     public float damageCooldown = 0;
     public float maxDamageCooldown = 1f;
 
+    public Vector3 extraForce = Vector3.zero;
+
 
 
     // Start is called before the first frame update
@@ -178,10 +180,10 @@ public class PlayerController : MonoBehaviour
             rb.angularVelocity = Vector3.zero;
         }
         //rb.AddForce(moveDirection * walkSpeed);
-        rb.velocity = new Vector3(0,rb.velocity.y,0) + moveDirection * walkSpeed;
+        rb.velocity = new Vector3(0,rb.velocity.y,0) + moveDirection * walkSpeed + extraForce;
         if (rb.velocity.magnitude > 8f)
         {
-            rb.velocity = rb.velocity.normalized * 8f;
+            rb.velocity = rb.velocity.normalized * 8f + extraForce;
         }
         rb.AddRelativeTorque(0, Input.GetAxis("Mouse X") * 0.8f, 0);
 
@@ -210,6 +212,14 @@ public class PlayerController : MonoBehaviour
             inAir = true;
             animator.SetBool("isInAir", true);
         }
+
+        //slow down the extra velocity
+        extraForce *= 0.85f;
+        if(extraForce.magnitude < 0.01)
+        {
+            extraForce = Vector3.zero;
+        }
+
     }
 
     public void Die()
