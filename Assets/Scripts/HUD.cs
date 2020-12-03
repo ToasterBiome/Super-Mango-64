@@ -19,8 +19,15 @@ public class HUD : MonoBehaviour
 
     void Update()
     {
-        HeartUI.sprite = HeartSprites[player.curHealth];
+        
 
+
+        if(player == null)
+        {
+            return;
+        }
+
+        HeartUI.sprite = HeartSprites[player.curHealth];
         if (player.hasGloves)
         {
             GlovesIcon.enabled = true;

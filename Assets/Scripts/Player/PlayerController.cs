@@ -174,13 +174,21 @@ public class PlayerController : MonoBehaviour
         cameraRight.Normalize();
 
         //Vector3 moveDirection = cameraForward * Input.GetAxisRaw("Vertical") * 2f;
+        
         Vector3 moveDirection = cameraForward * Input.GetAxisRaw("Vertical") * 2f + cameraRight * Input.GetAxisRaw("Horizontal");
+
         if (Input.GetAxis("Mouse X") == 0)
         {
             rb.angularVelocity = Vector3.zero;
         }
         //rb.AddForce(moveDirection * walkSpeed);
-        rb.velocity = new Vector3(0,rb.velocity.y,0) + moveDirection * walkSpeed + extraForce;
+        if(!inAir)
+        {
+            rb.velocity = new Vector3(0, rb.velocity.y, 0) + moveDirection * walkSpeed + extraForce;
+        } else
+        {
+            rb.velocity = rb.velocity + extraForce;
+        }
         if (rb.velocity.magnitude > 8f)
         {
             rb.velocity = rb.velocity.normalized * 8f + extraForce;
