@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickupZone : MonoBehaviour
 {
-    public PlayerController controller;
+    public BetterPlayerController controller;
 
     // Start is called before the first frame update
     void Start()

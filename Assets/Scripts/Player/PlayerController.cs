@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         curHealth = maxHealth;
         animator = GetComponentInChildren<Animator>();
-        pickupZone.controller = this;
+        //pickupZone.controller = this;
     }
 
     public void PickupStart()
