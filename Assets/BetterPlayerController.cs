@@ -121,6 +121,12 @@ public class BetterPlayerController : MonoBehaviour
 
         }
 
+        if (currentPickup != null && pickupRB != null)
+        {
+            currentPickup.transform.position = pickupPoint.transform.position;
+            currentPickup.transform.rotation = pickupPoint.transform.rotation;
+        }
+
     }
 
     public void PickupStart()
