@@ -11,10 +11,17 @@ public class ButtonActivation : MonoBehaviour
 
     public AudioSource source;
 
+    private Animator buttonAnim;
+    private readonly int buttonAnimParam = Animator.StringToHash("isButtonDown");
+    public bool isDown;
+
     // Start is called before the first frame update
     void Start()
     {
         spawnable.SetActive(false);
+        isDown = false;
+
+        buttonAnim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -39,6 +46,8 @@ public class ButtonActivation : MonoBehaviour
         if (other.CompareTag("Pickup"))
         {
             cumulativeWeight += worldObject.weight;
+            isDown = true;
+            UpdateAnimation();
             source.Play();
         }
     }
@@ -50,6 +59,13 @@ public class ButtonActivation : MonoBehaviour
         if (other.CompareTag("Pickup"))
         {
             cumulativeWeight -= worldObject.weight;
+            isDown = false;
+            UpdateAnimation();
         }
+    }
+
+    public void UpdateAnimation()
+    {
+        buttonAnim.SetBool(buttonAnimParam, isDown);
     }
 }
