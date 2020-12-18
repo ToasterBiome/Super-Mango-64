@@ -18353,6 +18353,11 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 195474297}
+    - target: {fileID: 8465304529231477415, guid: ca9e2dc0bbd7f2b47998604a4a521dc3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2146956165074977948, guid: ca9e2dc0bbd7f2b47998604a4a521dc3,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -18562,6 +18567,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.13002934
+      objectReference: {fileID: 0}
+    - target: {fileID: 8802341611526068213, guid: ca9e2dc0bbd7f2b47998604a4a521dc3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0000038146977
+      objectReference: {fileID: 0}
+    - target: {fileID: 8802341611526068213, guid: ca9e2dc0bbd7f2b47998604a4a521dc3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.5474735e-13
       objectReference: {fileID: 0}
     - target: {fileID: 8802341612447033115, guid: ca9e2dc0bbd7f2b47998604a4a521dc3,
         type: 3}
