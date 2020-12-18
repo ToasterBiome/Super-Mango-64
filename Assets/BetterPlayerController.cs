@@ -21,8 +21,8 @@ public class BetterPlayerController : MonoBehaviour
 
     public Animator animator;
 
-    Vector3 horizontalMovement;
-    Vector3 verticalMovement;
+    public Vector3 horizontalMovement;
+    public Vector3 verticalMovement;
 
     //Pickup related objects
     public GameObject pickupPoint;
@@ -57,7 +57,10 @@ public class BetterPlayerController : MonoBehaviour
         float v = Input.GetAxisRaw("Vertical");
         horizontalMovement = new Vector3(h, 0, v);
 
-        verticalMovement += Physics.gravity * Time.deltaTime;
+        if(!controller.isGrounded)
+        {
+            verticalMovement += Physics.gravity * Time.deltaTime;
+        }
 
         
 
@@ -127,6 +130,12 @@ public class BetterPlayerController : MonoBehaviour
             currentPickup.transform.rotation = pickupPoint.transform.rotation;
         }
 
+    }
+
+
+    public void ExternalForce(Vector3 force)
+    {
+        verticalMovement += new Vector3(0, force.y, 0);
     }
 
     public void PickupStart()

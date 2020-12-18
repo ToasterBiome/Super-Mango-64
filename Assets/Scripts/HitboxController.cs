@@ -20,12 +20,15 @@ public class HitboxController : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerController>().Damage(box.damage);
+            other.gameObject.GetComponent<BetterPlayerController>().Damage(box.damage);
+
+            /*
             Vector3 force = other.transform.position - box.transform.position;
             force = force.normalized;
             Vector3 clampedForce = new Vector3(force.x, 0.125f, force.z);
-            other.GetComponent<PlayerController>().extraForce = clampedForce * 8;
+            other.GetComponent<BetterPlayerController>().extraForce = clampedForce * 8;
             Debug.Log(clampedForce);
+            */
         }
     }
 }

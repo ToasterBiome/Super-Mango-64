@@ -162,6 +162,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
+
     private void FixedUpdate()
     {
         //rb.AddRelativeForce(new Vector3(Input.GetAxisRaw("Vertical") * 10f, 0, -Input.GetAxisRaw("Horizontal") * 10f));

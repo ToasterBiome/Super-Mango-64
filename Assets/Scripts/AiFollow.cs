@@ -15,6 +15,7 @@ public class AiFollow : MonoBehaviour
 
     void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
         Mob = GetComponent<NavMeshAgent>();
         waitTime = startWaitTime;
         randomSpot = Random.Range(0, movespots.Length);

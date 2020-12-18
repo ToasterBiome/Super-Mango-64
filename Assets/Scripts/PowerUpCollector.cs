@@ -24,7 +24,7 @@ public class PowerUpCollector : MonoBehaviour
         if (other.tag == "Player")
         {
             hasPickedUpGloves = true;
-            other.GetComponent<PlayerController>().EquipGloves();
+            other.GetComponent<BetterPlayerController>().EquipGloves();
             Destroy(gameObject);
         }
     }

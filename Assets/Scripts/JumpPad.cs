@@ -35,7 +35,7 @@ public class JumpPad : MonoBehaviour
         {
             if(other.tag == "Player")
             {
-                other.GetComponent<Rigidbody>().AddForce(force * 10f);
+                other.GetComponent<BetterPlayerController>().ExternalForce(force);
                 cooldown = maxCooldown;
             }
         }

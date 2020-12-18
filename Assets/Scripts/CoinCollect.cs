@@ -18,7 +18,7 @@ public class CoinCollect : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name =="Player")
+        if(other.tag == "Player")
         {
             other.GetComponent<PlayerPoints>().points++;
 
