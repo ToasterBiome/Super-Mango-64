@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9a9929a34d8e7bf4d945cda9cd8e048f
+guid: 5a95e2109fe80f041bc6c45612d094af
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
@@ -7,13 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: pCube4Mat
-    second: {fileID: 2100000, guid: d047e8359dc2fc74ab8a8abfcfaca62a, type: 2}
+      name: SquareButton_Button
+    second: {fileID: 2100000, guid: b9bf2a1dccd71da4a8a44a205e65d4a9, type: 2}
   - first:
-      type: UnityEngine:Material
+      type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: pCube5Mat
-    second: {fileID: 2100000, guid: e72f34ddd28503b4a98f45ceff10abd7, type: 2}
+      name: button_SquareButton_Button_BaseMap
+    second: {fileID: 2800000, guid: c9f3592c2bca6f548b8f4c9dffc84c5a, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
