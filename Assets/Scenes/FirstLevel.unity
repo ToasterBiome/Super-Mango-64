@@ -2378,6 +2378,106 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.129
       objectReference: {fileID: 0}
+    - target: {fileID: 5684386340638810276, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684386340638810276, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684386340638810276, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684386340638810276, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684386340638810276, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5413693044620131128, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5413693044620131128, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5413693044620131128, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5413693044620131128, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5413693044620131128, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 290781086864769685, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 290781086864769685, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 290781086864769685, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 290781086864769685, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -32
+      objectReference: {fileID: 0}
+    - target: {fileID: 290781086864769685, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692363245692367082, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692363245692367082, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692363245692367082, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692363245692367082, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692363245692367082, guid: 27cded7997d496b47afafd6941322987,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27cded7997d496b47afafd6941322987, type: 3}
 --- !u!1001 &173722932
@@ -43003,6 +43103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   youWinText: {fileID: 1334926002}
   resetDelay: 1
+  music: {fileID: 0}
+  win: {fileID: 0}
 --- !u!4 &1915798391
 Transform:
   m_ObjectHideFlags: 0

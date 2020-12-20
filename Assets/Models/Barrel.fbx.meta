@@ -5,6 +5,12 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn1
+    second: {fileID: 6271573414225017425, guid: d4cfc2d4e4dbf5a42b3dda328de246ea,
+      type: 3}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Barrel1024x1024 - Copy

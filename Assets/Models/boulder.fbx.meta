@@ -5,6 +5,12 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bouldertexture
+    second: {fileID: -7912216169665682533, guid: 143af9c5d45078f479a6508e8b5e13ed,
+      type: 3}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: boulder64

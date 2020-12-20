@@ -8,10 +8,15 @@ ModelImporter:
     second: Take 001
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TreeFrog
+    second: {instanceID: 0}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: TreeFrog128
-    second: {fileID: 2800000, guid: 56fe14036838e8d479515277257742ca, type: 3}
+    second: {fileID: 2800000, guid: 2cdf2ec587910a64e90d4e17c075cd58, type: 3}
   materials:
     importMaterials: 1
     materialName: 0

@@ -201,7 +201,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1539926090739266967, guid: d99f115b362f5c848ae3acab1320a6ae, type: 3}
+  - {fileID: 2100000, guid: f9d0bb1813bcbeb40b92b4f2b70c0fca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -499,6 +499,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   MobDistanceRun: 6
+  movespots: []
+  waitTime: 0
+  startWaitTime: 0
 --- !u!82 &5269417173869611837
 AudioSource:
   m_ObjectHideFlags: 0
