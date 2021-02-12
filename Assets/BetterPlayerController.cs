@@ -13,8 +13,8 @@ public class BetterPlayerController : MonoBehaviour
     public Transform cam;
 
     public float speed = 6f;
-    public float jumpHeight = 15f;
-    public float throwForce = 30f;
+    public float jumpHeight = 5f;
+    public float throwForce = 18f;
 
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
@@ -42,12 +42,19 @@ public class BetterPlayerController : MonoBehaviour
 
     public Vector3 extraForce = Vector3.zero;
 
+    //Physics matrials
+    public float accelerationSpeed;
+    public float maxSpeed;
+    public PhysicMaterial stoppingMaterial, movingMaterial;
+    public Collider collider;
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         animator = GetComponentInChildren<Animator>();
         pickupZone.controller = this;
+
+        collider = GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -80,8 +87,11 @@ public class BetterPlayerController : MonoBehaviour
 
             Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDirection.normalized * speed * Time.deltaTime + verticalMovement * Time.deltaTime);
+
+            collider.material = movingMaterial;
         } else
         {
+            collider.material = stoppingMaterial;
             controller.Move(verticalMovement * Time.deltaTime);
         }
 
