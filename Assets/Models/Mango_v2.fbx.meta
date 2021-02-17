@@ -99,16 +99,16 @@ ModelImporter:
       name: Idle
       takeName: Take 001
       internalID: 0
-      firstFrame: 2
-      lastFrame: 30
+      firstFrame: 1
+      lastFrame: 9
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
+      loopTime: 0
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -118,32 +118,7 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves:
-      - name: Curve
-        curve:
-          serializedVersion: 2
-          curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0.007522583
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 0.007522583
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          preInfinity: 3
-          postInfinity: 3
-          rotationOrder: 4
+      curves: []
       events: []
       transformMask: []
       maskType: 3
@@ -153,8 +128,8 @@ ModelImporter:
       name: Run
       takeName: Take 001
       internalID: 0
-      firstFrame: 33
-      lastFrame: 55
+      firstFrame: 10
+      lastFrame: 90
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -162,7 +137,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 1
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -182,8 +157,8 @@ ModelImporter:
       name: Jump Start
       takeName: Take 001
       internalID: 0
-      firstFrame: 74
-      lastFrame: 83
+      firstFrame: 91
+      lastFrame: 97
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -211,8 +186,8 @@ ModelImporter:
       name: In Air
       takeName: Take 001
       internalID: 0
-      firstFrame: 84
-      lastFrame: 90
+      firstFrame: 92
+      lastFrame: 102
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -240,8 +215,8 @@ ModelImporter:
       name: Land
       takeName: Take 001
       internalID: 0
-      firstFrame: 91
-      lastFrame: 106
+      firstFrame: 103
+      lastFrame: 110
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -270,7 +245,7 @@ ModelImporter:
       takeName: Take 001
       internalID: 0
       firstFrame: 111
-      lastFrame: 163
+      lastFrame: 129
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
