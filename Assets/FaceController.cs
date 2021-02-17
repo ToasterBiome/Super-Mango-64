@@ -18,14 +18,15 @@ public class FaceController : MonoBehaviour
 
     public void ChangeEyes(string eyeName)
     {
-        if (currentEye != null)
-        {
-            currentEye.SetActive(false);
-        }
+        
         foreach (GameObject eye in eyes)
         {
             if (eye.name == eyeName)
             {
+                if (currentEye != null)
+                {
+                    currentEye.SetActive(false);
+                }
                 currentEye = eye;
                 eye.SetActive(true);
                 return;
@@ -36,14 +37,15 @@ public class FaceController : MonoBehaviour
 
     public void ChangeMouth(string mouthName)
     {
-        if(currentMouth != null)
-        {
-            currentMouth.SetActive(false);
-        }
+        
         foreach(GameObject mouth in mouths)
         {
             if (mouth.name == mouthName)
             {
+                if (currentMouth != null)
+                {
+                    currentMouth.SetActive(false);
+                }
                 currentMouth = mouth;
                 mouth.SetActive(true);
                 return;
