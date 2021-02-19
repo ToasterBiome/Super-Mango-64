@@ -43,18 +43,14 @@ public class BetterPlayerController : MonoBehaviour
     public Vector3 extraForce = Vector3.zero;
 
     //Physics matrials
-    public float accelerationSpeed;
+    public float accelerationSpeed, decelerationSpeed;
     public float maxSpeed;
-    public PhysicMaterial stoppingMaterial, movingMaterial;
-    public Collider collider;
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         animator = GetComponentInChildren<Animator>();
         pickupZone.controller = this;
-
-        collider = GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -79,8 +75,14 @@ public class BetterPlayerController : MonoBehaviour
 
         animator.SetBool("isInAir", !controller.isGrounded);
 
+
+
         if (horizontalMovement.magnitude >= 0.1f)
         {
+            if(speed < maxSpeed)
+            {
+                speed += accelerationSpeed * Time.deltaTime;
+            }
             float targetAngle = Mathf.Atan2(horizontalMovement.x, horizontalMovement.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
@@ -88,10 +90,12 @@ public class BetterPlayerController : MonoBehaviour
             Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDirection.normalized * speed * Time.deltaTime + verticalMovement * Time.deltaTime);
 
-            collider.material = movingMaterial;
         } else
         {
-            collider.material = stoppingMaterial;
+            if (speed > 0 && horizontalMovement.magnitude<0.1f)
+            {
+                speed -= decelerationSpeed * Time.deltaTime;
+            }
             controller.Move(verticalMovement * Time.deltaTime);
         }
 

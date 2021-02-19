@@ -18541,6 +18541,26 @@ PrefabInstance:
       propertyPath: throwForce
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 937808215140777359, guid: ca9e2dc0bbd7f2b47998604a4a521dc3,
+        type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 937808215140777359, guid: ca9e2dc0bbd7f2b47998604a4a521dc3,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 937808215140777359, guid: ca9e2dc0bbd7f2b47998604a4a521dc3,
+        type: 3}
+      propertyPath: accelerationSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 937808215140777359, guid: ca9e2dc0bbd7f2b47998604a4a521dc3,
+        type: 3}
+      propertyPath: decelerationSpeed
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8465304529231477415, guid: ca9e2dc0bbd7f2b47998604a4a521dc3,
         type: 3}
       propertyPath: m_LocalPosition.z
