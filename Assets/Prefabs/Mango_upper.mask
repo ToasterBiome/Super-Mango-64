@@ -1,0 +1,179 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Mango_upper
+  m_Mask: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Eyes
+    m_Weight: 1
+  - m_Path: Eyes/Angry_eyes
+    m_Weight: 1
+  - m_Path: Eyes/Annoyed_eyes
+    m_Weight: 1
+  - m_Path: Eyes/Big_eyes
+    m_Weight: 1
+  - m_Path: Eyes/Closed_eyes
+    m_Weight: 1
+  - m_Path: Eyes/ClosedYell_eyes
+    m_Weight: 1
+  - m_Path: Eyes/Confused_eyes
+    m_Weight: 1
+  - m_Path: Eyes/Default_Eyes
+    m_Weight: 1
+  - m_Path: Eyes/Determined_eyes
+    m_Weight: 1
+  - m_Path: Eyes/Happy_eyes
+    m_Weight: 1
+  - m_Path: Eyes/Relaxed_eyes
+    m_Weight: 1
+  - m_Path: Eyes/Sad_eyes
+    m_Weight: 1
+  - m_Path: Eyes/Shocked_eyes
+    m_Weight: 1
+  - m_Path: Eyes/Starry_eyes
+    m_Weight: 1
+  - m_Path: Eyes/Tired_eyes
+    m_Weight: 1
+  - m_Path: Glove
+    m_Weight: 1
+  - m_Path: Hands
+    m_Weight: 1
+  - m_Path: Hip_J
+    m_Weight: 0
+  - m_Path: Hip_J/L_LegTop_j
+    m_Weight: 0
+  - m_Path: Hip_J/L_LegTop_j/L_Knee_J
+    m_Weight: 0
+  - m_Path: Hip_J/L_LegTop_j/L_Knee_J/L_Foot_J
+    m_Weight: 0
+  - m_Path: Hip_J/L_LegTop_j/L_Knee_J/L_Foot_J/L_Foot2_J
+    m_Weight: 0
+  - m_Path: Hip_J/L_LegTop_j/L_Knee_J/L_Foot_J/L_Foot2_J/L_FootTip_J
+    m_Weight: 1
+  - m_Path: Hip_J/R_LegTop_j
+    m_Weight: 0
+  - m_Path: Hip_J/R_LegTop_j/R_Knee_J
+    m_Weight: 0
+  - m_Path: Hip_J/R_LegTop_j/R_Knee_J/R_Foot_J
+    m_Weight: 0
+  - m_Path: Hip_J/R_LegTop_j/R_Knee_J/R_Foot_J/R_Foot2_J
+    m_Weight: 0
+  - m_Path: Hip_J/R_LegTop_j/R_Knee_J/R_Foot_J/R_Foot2_J/R_FootTip_J
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Spine02_J
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Spine02_J/L_Clavicle
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Spine02_J/L_Clavicle/L_Shoulder_J
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Spine02_J/L_Clavicle/L_Shoulder_J/L_Elbow_J
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Spine02_J/L_Clavicle/L_Shoulder_J/L_Elbow_J/L_Wrist_J
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Spine02_J/L_Clavicle/L_Shoulder_J/L_Elbow_J/L_Wrist_J/L_Fingers_J
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Spine02_J/L_Clavicle/L_Shoulder_J/L_Elbow_J/L_Wrist_J/L_Fingers_J/L_FingersTip_J
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Spine02_J/L_Clavicle/L_Shoulder_J/L_Elbow_J/L_Wrist_J/L_ThumbJ
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Spine02_J/L_Clavicle/L_Shoulder_J/L_Elbow_J/L_Wrist_J/L_ThumbJ/L_Thumb_Tip
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Spine02_J/R_Clavicle
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Spine02_J/R_Clavicle/R_Shoulder_J
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Spine02_J/R_Clavicle/R_Shoulder_J/R_Elbow_J
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Spine02_J/R_Clavicle/R_Shoulder_J/R_Elbow_J/R_Wrist_J
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Spine02_J/R_Clavicle/R_Shoulder_J/R_Elbow_J/R_Wrist_J/R_Fingers_J
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Spine02_J/R_Clavicle/R_Shoulder_J/R_Elbow_J/R_Wrist_J/R_Fingers_J/R_FingersTip_J
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Spine02_J/R_Clavicle/R_Shoulder_J/R_Elbow_J/R_Wrist_J/R_ThumbJ
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Spine02_J/R_Clavicle/R_Shoulder_J/R_Elbow_J/R_Wrist_J/R_ThumbJ/R_Thumb_Tip
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Spine02_J/Spine03_J
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Spine02_J/Spine03_J/Head
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Spine02_J/Spine03_J/Head/Head_Tip_J
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Tail1_J
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Tail1_J/Tail2_J
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Tail1_J/Tail2_J/Tail3_J
+    m_Weight: 1
+  - m_Path: Hip_J/Spine01_J/Tail1_J/Tail2_J/Tail3_J/TailTip_J
+    m_Weight: 1
+  - m_Path: ikLeftArm
+    m_Weight: 1
+  - m_Path: ikLeftLeg
+    m_Weight: 0
+  - m_Path: ikRightArm
+    m_Weight: 1
+  - m_Path: ikRightLeg
+    m_Weight: 0
+  - m_Path: ikSpine
+    m_Weight: 1
+  - m_Path: ikTail
+    m_Weight: 1
+  - m_Path: Mango_Body1
+    m_Weight: 1
+  - m_Path: Master_CTRL
+    m_Weight: 1
+  - m_Path: Master_CTRL/Hip_CTRL
+    m_Weight: 1
+  - m_Path: Master_CTRL/Hip_CTRL/Chest_CTRL
+    m_Weight: 1
+  - m_Path: Master_CTRL/Hip_CTRL/Chest_CTRL/Head_CTRL
+    m_Weight: 1
+  - m_Path: Master_CTRL/Hip_CTRL/Chest_CTRL/L_Wrist_CTRL
+    m_Weight: 1
+  - m_Path: Master_CTRL/Hip_CTRL/Chest_CTRL/L_Wrist_CTRL/L_Elbow
+    m_Weight: 1
+  - m_Path: Master_CTRL/Hip_CTRL/Chest_CTRL/R_Wrist_CTRL
+    m_Weight: 1
+  - m_Path: Master_CTRL/Hip_CTRL/Chest_CTRL/R_Wrist_CTRL/R_Elbow
+    m_Weight: 1
+  - m_Path: Master_CTRL/Hip_CTRL/Tail_CTRL
+    m_Weight: 1
+  - m_Path: Master_CTRL/L_Foot_CTRL
+    m_Weight: 1
+  - m_Path: Master_CTRL/L_Foot_CTRL/L_Knee
+    m_Weight: 1
+  - m_Path: Master_CTRL/R_Foot_CTRL
+    m_Weight: 1
+  - m_Path: Master_CTRL/R_Foot_CTRL/R_Knee
+    m_Weight: 1
+  - m_Path: Mouthes
+    m_Weight: 1
+  - m_Path: Mouthes/frown
+    m_Weight: 1
+  - m_Path: Mouthes/gaping
+    m_Weight: 1
+  - m_Path: Mouthes/nuetral
+    m_Weight: 1
+  - m_Path: Mouthes/OOO_OOO
+    m_Weight: 1
+  - m_Path: Mouthes/scream
+    m_Weight: 1
+  - m_Path: Mouthes/small_smile
+    m_Weight: 1
+  - m_Path: Mouthes/smile
+    m_Weight: 1
+  - m_Path: Mouthes/teeth
+    m_Weight: 1
+  - m_Path: SpineCurve
+    m_Weight: 1
