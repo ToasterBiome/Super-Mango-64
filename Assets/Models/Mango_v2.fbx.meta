@@ -221,7 +221,7 @@ ModelImporter:
       name: Land
       takeName: Take 001
       internalID: 0
-      firstFrame: 91
+      firstFrame: 98
       lastFrame: 105
       wrapMode: 0
       orientationOffsetY: 0
