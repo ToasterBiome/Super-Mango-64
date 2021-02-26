@@ -23,10 +23,16 @@ ModelImporter:
     second: Pickup
   - first:
       74: 2344679968605852592
-    second: Run Hold
+    second: Holding
   - first:
       74: 2672594608682397314
     second: Basic Pose
+  - first:
+      74: -8086047558812005389
+    second: Sprint
+  - first:
+      74: -6185155371445809522
+    second: Throw
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -39,20 +45,35 @@ ModelImporter:
       name: Mango
     second: {fileID: 2100000, guid: 3e3b039ab505611419f238ddc52acecb, type: 2}
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiStandardSurface2
+    second: {fileID: 2100000, guid: f8d508041f4cd004a81ec4c00e45e53b, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: GloveBlue64
-    second: {fileID: 2800000, guid: e9d7ffbec5792f04bafa07738f116c53, type: 3}
+    second: {fileID: 2800000, guid: 1b804dc253bd86f4c92fbf38411b0782, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: MangoColorFixed
-    second: {fileID: 2800000, guid: c989993492f15cd4bbc82741ab434168, type: 3}
+    second: {fileID: 2800000, guid: 7411d9a882a30de429796222aa2d8be5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MangoColorFixed - Noeyes
+    second: {fileID: 2800000, guid: 7bddb2123fe6bc747b8da771840ca1e1, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: MangoColoralpha
-    second: {fileID: 2800000, guid: a44fc41252a62a647b4b6678cc71ae97, type: 3}
+    second: {fileID: 2800000, guid: 236586aca099ba24eb81eb422295998e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: eyeTest
+    second: {fileID: 2800000, guid: 29f1598d79fb8ac4c8511706bb6e4f0c, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
@@ -61,7 +82,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleCurves: 1
+    resampleCurves: 0
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
@@ -71,8 +92,8 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
-    animationCompression: 1
+    importConstraints: 1
+    animationCompression: 0
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -84,16 +105,16 @@ ModelImporter:
       name: Idle
       takeName: Take 001
       internalID: 0
-      firstFrame: 0
-      lastFrame: 9
+      firstFrame: 2
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -113,8 +134,8 @@ ModelImporter:
       name: Run
       takeName: Take 001
       internalID: 0
-      firstFrame: 10
-      lastFrame: 90
+      firstFrame: 32
+      lastFrame: 55
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -122,7 +143,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 0
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -142,8 +163,8 @@ ModelImporter:
       name: Jump Start
       takeName: Take 001
       internalID: 0
-      firstFrame: 91
-      lastFrame: 97
+      firstFrame: 74
+      lastFrame: 83
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -171,8 +192,8 @@ ModelImporter:
       name: In Air
       takeName: Take 001
       internalID: 0
-      firstFrame: 92
-      lastFrame: 102
+      firstFrame: 84
+      lastFrame: 91
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -200,8 +221,8 @@ ModelImporter:
       name: Land
       takeName: Take 001
       internalID: 0
-      firstFrame: 103
-      lastFrame: 110
+      firstFrame: 98
+      lastFrame: 105
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -229,8 +250,8 @@ ModelImporter:
       name: Pickup
       takeName: Take 001
       internalID: 0
-      firstFrame: 111
-      lastFrame: 129
+      firstFrame: 106
+      lastFrame: 132
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -255,11 +276,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Run Hold
+      name: Holding
       takeName: Take 001
       internalID: 0
-      firstFrame: 130
-      lastFrame: 210
+      firstFrame: 132
+      lastFrame: 133
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -289,6 +310,64 @@ ModelImporter:
       internalID: 0
       firstFrame: 211
       lastFrame: 211
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Sprint
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 57
+      lastFrame: 73
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Throw
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 132
+      lastFrame: 163
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

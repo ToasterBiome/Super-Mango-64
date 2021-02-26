@@ -13,8 +13,8 @@ public class BetterPlayerController : MonoBehaviour
     public Transform cam;
 
     public float speed = 6f;
-    public float jumpHeight = 15f;
-    public float throwForce = 30f;
+    public float jumpHeight = 5f;
+    public float throwForce = 18f;
 
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
@@ -42,6 +42,9 @@ public class BetterPlayerController : MonoBehaviour
 
     public Vector3 extraForce = Vector3.zero;
 
+    //Physics matrials
+    public float accelerationSpeed, decelerationSpeed;
+    public float maxSpeed;
 
     private void Start()
     {
@@ -72,16 +75,27 @@ public class BetterPlayerController : MonoBehaviour
 
         animator.SetBool("isInAir", !controller.isGrounded);
 
+
+
         if (horizontalMovement.magnitude >= 0.1f)
         {
+            if(speed < maxSpeed)
+            {
+                speed += accelerationSpeed * Time.deltaTime;
+            }
             float targetAngle = Mathf.Atan2(horizontalMovement.x, horizontalMovement.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDirection.normalized * speed * Time.deltaTime + verticalMovement * Time.deltaTime);
+
         } else
         {
+            if (speed > 0 && horizontalMovement.magnitude<0.1f)
+            {
+                speed -= decelerationSpeed * Time.deltaTime;
+            }
             controller.Move(verticalMovement * Time.deltaTime);
         }
 
