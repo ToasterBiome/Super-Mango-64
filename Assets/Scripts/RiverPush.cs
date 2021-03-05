@@ -2,12 +2,36 @@
 
 public class RiverPush : MonoBehaviour
 {
-    public int PushForce = 2;
+    public float PushForce = 2f;
 
-    void OnTriggerStay(Collider other)
+    bool playerInside;
+    GameObject player;
+
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
-            other.transform.Translate(-Vector3.right * Time.deltaTime * PushForce, Space.World);
+        {
+            playerInside = true;
+            player = other.gameObject;
+        }
+        
+    }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            playerInside = false;
+            player = null;
+        }
+        
+    }
+
+    private void FixedUpdate()
+    {
+        if (playerInside)
+        {
+            player.transform.position = player.transform.position + (-Vector3.right * PushForce * Time.deltaTime);
+        }
     }
 }
