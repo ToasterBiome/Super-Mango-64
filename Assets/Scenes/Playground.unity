@@ -19916,6 +19916,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 13400000, guid: 9b35e32da9eb4cc4090da9f0a402b3e2,
         type: 2}
+    - target: {fileID: 937808215140777359, guid: ca9e2dc0bbd7f2b47998604a4a521dc3,
+        type: 3}
+      propertyPath: trajectoryDummyPrefab
+      value: 
+      objectReference: {fileID: 626982023863212235, guid: 5410c6576cf941c49a56dcd1b4adc1c7,
+        type: 3}
     - target: {fileID: 8465304529231477415, guid: ca9e2dc0bbd7f2b47998604a4a521dc3,
         type: 3}
       propertyPath: m_LocalPosition.z

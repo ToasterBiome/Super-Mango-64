@@ -46,6 +46,14 @@ public class BetterPlayerController : MonoBehaviour
     public float accelerationSpeed, decelerationSpeed;
     public float maxSpeed;
 
+    //trajectory prediction
+
+    public GameObject trajectoryDummyPrefab;
+    public GameObject trajectoryDummy;
+
+    public float trajTime = 0f;
+    public float maxTrajTime = 2f;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -120,6 +128,19 @@ public class BetterPlayerController : MonoBehaviour
             }
         }
 
+        if(currentPickup)
+        {
+            trajTime += Time.deltaTime;
+            if(trajTime >= maxTrajTime)
+            {
+                trajTime -= maxTrajTime;
+                //move it back
+                trajectoryDummy.transform.position = currentPickup.transform.position;
+                trajectoryDummy.GetComponent<TrailRenderer>().Clear();
+                trajectoryDummy.GetComponent<Rigidbody>().AddForce(throwForce * transform.forward + transform.up, ForceMode.VelocityChange);
+            }
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             if (animator.GetBool("Holding"))
@@ -166,7 +187,6 @@ public class BetterPlayerController : MonoBehaviour
         }
         currentPickup = targetPickup;
         pickupRB = currentPickup.GetComponent<Rigidbody>();
-
         pickupRB.useGravity = false;
         currentPickup.transform.position = pickupPoint.transform.position;
         currentPickup.transform.parent = this.gameObject.transform;
@@ -175,6 +195,11 @@ public class BetterPlayerController : MonoBehaviour
         currentPickup.GetComponent<MeshCollider>().enabled = false;
         animator.SetTrigger("Pickup");
         animator.SetBool("Holding", true);
+
+        trajectoryDummy = Instantiate(trajectoryDummyPrefab);
+        trajectoryDummy.transform.position = currentPickup.transform.position;
+        trajectoryDummy.GetComponent<Rigidbody>().AddForce(throwForce * transform.forward + transform.up, ForceMode.VelocityChange);
+
     }
 
     public void SetPickupObject(GameObject pickupObject)
@@ -205,6 +230,12 @@ public class BetterPlayerController : MonoBehaviour
         animator.SetTrigger("PickupThrow");
         animator.SetBool("Holding", false);
 
+        if(trajectoryDummy)
+        {
+            Destroy(trajectoryDummy);
+            trajectoryDummy = null;
+        }
+
     }
 
     public void PickupDrop()
@@ -219,6 +250,12 @@ public class BetterPlayerController : MonoBehaviour
         currentPickup = null;
         pickupRB = null;
         animator.SetBool("Holding", false);
+
+        if (trajectoryDummy)
+        {
+            Destroy(trajectoryDummy);
+            trajectoryDummy = null;
+        }
     }
 
     public void Die()
