@@ -19702,11 +19702,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7901564430664093680, guid: ca9e2dc0bbd7f2b47998604a4a521dc3,
-        type: 3}
-      propertyPath: lookObj
-      value: 
-      objectReference: {fileID: 149882936}
     - target: {fileID: 937808215140777356, guid: ca9e2dc0bbd7f2b47998604a4a521dc3,
         type: 3}
       propertyPath: m_Name
@@ -19717,6 +19712,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7901564430664093680, guid: ca9e2dc0bbd7f2b47998604a4a521dc3,
+        type: 3}
+      propertyPath: lookObj
+      value: 
+      objectReference: {fileID: 149882936}
     - target: {fileID: 2764846703074060416, guid: ca9e2dc0bbd7f2b47998604a4a521dc3,
         type: 3}
       propertyPath: m_IsActive
