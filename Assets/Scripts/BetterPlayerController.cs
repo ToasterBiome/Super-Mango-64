@@ -54,6 +54,9 @@ public class BetterPlayerController : MonoBehaviour
     public float trajTime = 0f;
     public float maxTrajTime = 2f;
 
+    //particle effects
+    public ParticleSystem dust;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -79,6 +82,7 @@ public class BetterPlayerController : MonoBehaviour
         {
             verticalMovement.y = jumpHeight;
             animator.SetTrigger("Jump");
+            CreateDust();
         }
 
         animator.SetBool("isInAir", !controller.isGrounded);
@@ -277,5 +281,10 @@ public class BetterPlayerController : MonoBehaviour
         gloves.SetActive(true);
         hands.SetActive(false);
         hasGloves = true;
+    }
+
+    void CreateDust()
+    {
+        dust.Play();
     }
 }
