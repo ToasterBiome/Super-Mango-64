@@ -56,6 +56,7 @@ public class BetterPlayerController : MonoBehaviour
 
     //particle effects
     public ParticleSystem dust;
+    public ParticleSystem stars;
 
     private void Start()
     {
@@ -271,6 +272,7 @@ public class BetterPlayerController : MonoBehaviour
     {
         if (damageCooldown == 0)
         {
+            CreateStars();
             curHealth -= dmg;
         }
 
@@ -286,5 +288,9 @@ public class BetterPlayerController : MonoBehaviour
     void CreateDust()
     {
         dust.Play();
+    }
+    void CreateStars()
+    {
+        stars.Play();
     }
 }
