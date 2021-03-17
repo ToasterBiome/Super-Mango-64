@@ -6,9 +6,7 @@ using UnityEngine;
 public class CoinCollect : MonoBehaviour
 {
 
-    public ParticleSystem collect;
-    private bool isCoroutineExecuting = false;
-    public bool isCollected = false;
+    public GameObject collect;
 
     // Start is called before the first frame update
     void Start()
@@ -24,33 +22,17 @@ public class CoinCollect : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player" && isCollected == false)
+        if(other.tag == "Player")
         {
             CreateParticles();
             other.GetComponent<PlayerPoints>().points++;
-            isCollected = true;
-
-            GetComponent<Renderer>().enabled = false;
-
-            StartCoroutine(ExecuteAfterTime(1f, () =>
-            {
-                Destroy(gameObject);
-            }));
-
+            Destroy(gameObject);
         }
     }
 
     void CreateParticles()
     {
-        collect.Play();
-    }
-    IEnumerator ExecuteAfterTime(float time, Action task)
-    {
-        if (isCoroutineExecuting)
-            yield break;
-        isCoroutineExecuting = true;
-        yield return new WaitForSeconds(time);
-        task();
-        isCoroutineExecuting = false;
+        GameObject spawnedParticles = Instantiate(collect, transform.position, Quaternion.identity);
+        Destroy(spawnedParticles, 3.5f);
     }
 }
