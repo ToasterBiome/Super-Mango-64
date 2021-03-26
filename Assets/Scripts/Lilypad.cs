@@ -16,12 +16,23 @@ public class Lilypad : MonoBehaviour
         padAnim = GetComponentInChildren<Animator>();
     }
 
+    private void FixedUpdate()
+    {
+        if(isOnPad == true)
+        {
+            StartCoroutine(UpdateLilypad());
+        }
+        if(isOnPad == false)
+        {
+            UpdateAnimation();
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             isOnPad = true;
-            UpdateAnimation();
         }
     }
 
@@ -30,7 +41,6 @@ public class Lilypad : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isOnPad = false;
-            UpdateAnimation();
         }
     }
 
@@ -38,4 +48,11 @@ public class Lilypad : MonoBehaviour
     {
         padAnim.SetBool(padAnimParam, isOnPad);
     }
+
+    IEnumerator UpdateLilypad()
+    {
+        yield return new WaitForSeconds(2f);
+        UpdateAnimation();
+    }
+
 }
