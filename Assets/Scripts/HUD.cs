@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,11 +10,13 @@ public class HUD : MonoBehaviour
     public Image HeartUI;
     public Image GlovesIcon;
 
-    public PlayerController player;
+    public BetterPlayerController player;
+
+    public TextMeshProUGUI bananaText;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<BetterPlayerController>();
         GlovesIcon.enabled = false;
     }
 
@@ -32,6 +35,7 @@ public class HUD : MonoBehaviour
         {
             GlovesIcon.enabled = true;
         }
+        bananaText.text = player.bananas.ToString();
 
     }
 

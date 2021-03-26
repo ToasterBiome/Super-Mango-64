@@ -58,6 +58,10 @@ public class BetterPlayerController : MonoBehaviour
     public ParticleSystem dust;
     public ParticleSystem stars;
 
+    //banana counter
+
+    public int bananas = 0;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;

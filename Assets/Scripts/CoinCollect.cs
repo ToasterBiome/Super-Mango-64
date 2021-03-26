@@ -25,7 +25,7 @@ public class CoinCollect : MonoBehaviour
         if(other.tag == "Player")
         {
             CreateParticles();
-            other.GetComponent<PlayerPoints>().points++;
+            other.GetComponent<BetterPlayerController>().bananas++;
             Destroy(gameObject);
         }
     }
