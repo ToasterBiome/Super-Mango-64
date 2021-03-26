@@ -79,8 +79,8 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _tree_sway: 0
-    - _tree_sway_disp: 0.729
+    - _tree_sway: 0.001
+    - _tree_sway_disp: 0.33
     - _tree_sway_speed: 0.62
     - _wind_size: 50
     m_Colors:
