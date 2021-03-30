@@ -11,6 +11,8 @@ TagManager:
   - Banana
   - Wall
   - waypoint
+  - Enemy
+  - Waypoint
   layers:
   - Default
   - TransparentFX
@@ -20,10 +22,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Breadcrumb
+  - Waypoint
   - 
   - 
   - 
