@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream:Assets/Scenes/UI.unity.meta
 guid: 753dd18c3d6f75d49ab658c100042f85
+=======
+guid: db12a83e7f4a7ae4993f87e0e91a627d
+>>>>>>> Stashed changes:Assets/BreadcrumbAi/Examples/Demo/Scene/Demo.unity.meta
+=======
+guid: 753dd18c3d6f75d49ab658c100042f85
+>>>>>>> Stashed changes
 DefaultImporter:
   externalObjects: {}
   userData: 
