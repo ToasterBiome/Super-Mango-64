@@ -6,7 +6,8 @@ public class Lilypad : MonoBehaviour
 {
     private Animator padAnim;
     private readonly int padAnimParam = Animator.StringToHash("isOnPad");
-    public bool isOnPad;
+    private bool isOnPad;
+    public float waitTime;
 
     // Start is called before the first frame update
     void Start()
@@ -16,12 +17,23 @@ public class Lilypad : MonoBehaviour
         padAnim = GetComponentInChildren<Animator>();
     }
 
+    private void FixedUpdate()
+    {
+        if(isOnPad == true)
+        {
+            StartCoroutine(UpdateLilypad(waitTime));
+        }
+        if(isOnPad == false)
+        {
+            UpdateAnimation();
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             isOnPad = true;
-            UpdateAnimation();
         }
     }
 
@@ -30,7 +42,6 @@ public class Lilypad : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isOnPad = false;
-            UpdateAnimation();
         }
     }
 
@@ -38,4 +49,11 @@ public class Lilypad : MonoBehaviour
     {
         padAnim.SetBool(padAnimParam, isOnPad);
     }
+
+    IEnumerator UpdateLilypad(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        UpdateAnimation();
+    }
+
 }
