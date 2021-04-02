@@ -1,65 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6539199891686457104
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6050e2d5de785ce4d931e4dbdbf2d755, type: 3}
-  m_Name: ChromaticAberration
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  spectralLut:
-    overrideState: 0
-    value: {fileID: 0}
-    defaultState: 1
-  intensity:
-    overrideState: 0
-    value: 0
-  fastMode:
-    overrideState: 0
-    value: 0
---- !u!114 &-1761739420841151951
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b77c5407dc277943b591ade9e6b18c5, type: 3}
-  m_Name: LensDistortion
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  intensity:
-    overrideState: 1
-    value: 53
-  intensityX:
-    overrideState: 1
-    value: 1
-  intensityY:
-    overrideState: 1
-    value: 1
-  centerX:
-    overrideState: 1
-    value: 0
-  centerY:
-    overrideState: 1
-    value: 0
-  scale:
-    overrideState: 1
-    value: 1
 --- !u!114 &-1733164215510260895
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -87,10 +27,10 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.503
+    value: 0.335
   smoothness:
     overrideState: 1
-    value: 0.222
+    value: 0.135
   roundness:
     overrideState: 1
     value: 1
@@ -122,8 +62,6 @@ MonoBehaviour:
   - {fileID: 8321766411974757629}
   - {fileID: 5291854010591902250}
   - {fileID: -1733164215510260895}
-  - {fileID: -1761739420841151951}
-  - {fileID: -6539199891686457104}
 --- !u!114 &736278078527897051
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -142,10 +80,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.45
+    value: 1.13
   threshold:
     overrideState: 1
-    value: 0
+    value: 1.59
   softKnee:
     overrideState: 1
     value: 0.343
@@ -1503,10 +1441,10 @@ MonoBehaviour:
     value: 3.77
   aperture:
     overrideState: 1
-    value: 2.5
+    value: 17.8
   focalLength:
     overrideState: 1
-    value: 69
+    value: 96
   kernelSize:
     overrideState: 1
     value: 1
