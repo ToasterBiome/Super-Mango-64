@@ -60,7 +60,7 @@ Material:
     - _ReflectionTex_ST: {r: 1, g: 1, b: 0, a: 0}
     - _ReflectiveColorCube_ST: {r: 1, g: 1, b: 0, a: 0}
     - _ReflectiveColor_ST: {r: 1, g: 1, b: 0, a: 0}
-    - _RefrColor: {r: 0.9372549, g: 0.9372549, b: 0.9372549, a: 1}
+    - _RefrColor: {r: 0.4452207, g: 0.6554506, b: 0.8207547, a: 1}
     - _RefractionTex_ST: {r: 1, g: 1, b: 0, a: 0}
 --- !u!1002 &2100001
 EditorExtensionImpl:
