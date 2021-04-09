@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 7811885399941140052}
   - component: {fileID: 4216676512610458102}
   m_Layer: 0
-  m_Name: Lillypad (S)
+  m_Name: Lillypad (S) 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
