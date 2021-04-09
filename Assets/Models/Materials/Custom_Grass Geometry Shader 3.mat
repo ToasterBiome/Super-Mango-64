@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _AmbientStrength: 0.5
+    - _AmbientStrength: 0.264
     - _BladeCurve: 2
     - _BladeForward: 0.38
     - _GrassHeight: 1
@@ -31,7 +31,7 @@ Material:
     - _Radius: 0.3
     - _RandomHeight: 0.25
     - _Strength: 5
-    - _WindSpeed: 100
+    - _WindSpeed: 20.3
     - _WindStrength: 0.05
     m_Colors:
     - _BottomColor: {r: 0, g: 1, b: 0, a: 1}
