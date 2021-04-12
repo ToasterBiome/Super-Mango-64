@@ -31,7 +31,7 @@ public class DemoEnemyControls : MonoBehaviour {
 	private float meleeAttackRate = 1.0f;
 	
 	private Animator anim;
-	private string animRun = "Run";
+	private string animRun = "Jump";
 	private string animDeath1 = "Death1";
 	private string animAttack = "Attack";
 	
