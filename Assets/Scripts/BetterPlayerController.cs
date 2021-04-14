@@ -62,6 +62,10 @@ public class BetterPlayerController : MonoBehaviour
 
     public int bananas = 0;
 
+    public bool inWater = false;
+
+    public float waterJumpModifier = 0.8f;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -85,7 +89,14 @@ public class BetterPlayerController : MonoBehaviour
 
         if (controller.isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
-            verticalMovement.y = jumpHeight;
+            if(inWater)
+            {
+                verticalMovement.y = jumpHeight * waterJumpModifier;
+            } else
+            {
+                verticalMovement.y = jumpHeight;
+            }
+            
             animator.SetTrigger("Jump");
             CreateDust();
         }
