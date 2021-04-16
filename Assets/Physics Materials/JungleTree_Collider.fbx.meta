@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: 3ce30cc412c0de943b87b926255526c8
+guid: 68377f37b6427794bad0ad5b77ed7d6e
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: JungleBark
-    second: {fileID: 2100000, guid: 4e1e2b11e56d14247857248b0b127e58, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: JungleLeaves
-    second: {fileID: 2100000, guid: 07dfb2ca1f9a6f641b4e7c35672efe8c, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -46,7 +36,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.6
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
