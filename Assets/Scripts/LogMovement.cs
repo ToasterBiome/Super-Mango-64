@@ -6,8 +6,7 @@ public class LogMovement : MonoBehaviour
 {
     public GameObject[] waypoints;
     public GameObject player;
-    int current = 0;
-    float rotspeed;
+    public int current = 0;
     public float speed;
     float wRadius = 1;
 
@@ -15,26 +14,32 @@ public class LogMovement : MonoBehaviour
     {
         if(other.gameObject == player)
         {
-            player.transform.parent = transform;
+            player.transform.SetParent(transform);
+            //player.transform.localScale = Vector3.one;
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject == player)
         {
-            player.transform.parent = null;
+            player.transform.SetParent(null, true);
+            player.transform.localScale = Vector3.one;
         }
     }
     private void Update()
     {
-        if(Vector3.Distance(waypoints[current].transform.position,transform.position)< wRadius)
+        if (Vector3.Distance(waypoints[current].transform.position, transform.position) < wRadius)
         {
             current++;
-            if(current >= waypoints.Length)
+            if (current >= waypoints.Length)
             {
                 current = 0;
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
         transform.position = Vector3.MoveTowards(transform.position, waypoints[current].transform.position, Time.deltaTime * speed);
     }
 }
