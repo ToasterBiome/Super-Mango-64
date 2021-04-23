@@ -31,6 +31,7 @@ public class FrogAttack : MonoBehaviour
 
         Vector3 direction = player.position - this.transform.position;
         float angle = Vector3.Angle(direction, this.transform.forward);
+
         if(Vector3.Distance(player.position,this.transform.position) < 10 && angle < 90)
         {
             direction.y = 0;
@@ -44,12 +45,14 @@ public class FrogAttack : MonoBehaviour
                 anim.SetBool("IsWalking", true);
                 anim.SetBool("IsAttacking", false);
             }
-            else if(Vector3.Distance(player.position, this.transform.position) < 1.1 && angle < 45)
+
+            else if(Vector3.Distance(player.position, this.transform.position) < 1.1 && angle < 90)
             {
                 anim.SetBool("IsAttacking", true);
                 anim.SetBool("IsWalking", false);
             }
         }
+
         else
         {
             anim.SetBool("IsIdle", true);
