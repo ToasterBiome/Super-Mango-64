@@ -128,7 +128,7 @@ AvatarMask:
   - m_Path: ikSpine
     m_Weight: 1
   - m_Path: ikTail
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Mango_Body1
     m_Weight: 1
   - m_Path: Master_CTRL
