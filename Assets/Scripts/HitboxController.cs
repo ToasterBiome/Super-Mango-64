@@ -18,7 +18,7 @@ public class HitboxController : MonoBehaviour
 
     public void onHit(Hitbox box, Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Pickup")
         {
             other.gameObject.GetComponent<BetterPlayerController>().Damage(box.damage);
 

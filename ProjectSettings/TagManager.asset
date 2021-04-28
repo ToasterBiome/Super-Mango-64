@@ -13,6 +13,7 @@ TagManager:
   - waypoint
   - Enemy
   - Waypoint
+  - Barrel
   layers:
   - Default
   - TransparentFX

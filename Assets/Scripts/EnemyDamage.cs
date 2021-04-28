@@ -30,5 +30,5 @@ public class EnemyDamage : MonoBehaviour
             source.PlayOneShot(clip);
         }
     }
-    
+
 }

@@ -6,58 +6,62 @@ using UnityEngine.AI;
 public class FrogAttack : MonoBehaviour
 {
     public Transform player;
-    static Animator anim;
-    public Transform[] points;
-    int current;
-    public float speed;
+    Animator anim;
+
+    string state = "patrol";
+    public GameObject[] waypoints;
+    int currentWP = 0;
+    public float rotSpeed = 2f;
+    public float speed = 2f;
+    public float accuracyWP = 1.0f;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
-        //current = 0;
     }
 
-    private void Update()
+    void Update()
     {
-        //Waypoint
-        //if(transform.position != points[current].position)
-        //{
-        //    transform.position = Vector3.MoveTowards(transform.position, points[current].position, speed * Time.deltaTime);
-        //}
-        //else
-        //{
-        //    current = (current + 1) % points.Length;
-        //}
-
         Vector3 direction = player.position - this.transform.position;
+        direction.y = 0;
         float angle = Vector3.Angle(direction, this.transform.forward);
 
-        if(Vector3.Distance(player.position,this.transform.position) < 10 && angle < 90)
+        if(state == "patrol" && waypoints.Length > 0)
         {
-            direction.y = 0;
+            anim.SetBool("isIdle", false);
+            anim.SetBool("isWalking", true);
+            if(Vector3.Distance(waypoints[currentWP].transform.position, transform.position) < accuracyWP)
+            {
+                currentWP = Random.Range(0, waypoints.Length);
+            }
 
-            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction),0.1f);
+            direction = waypoints[currentWP].transform.position - transform.position;
+            this.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotSpeed * Time.deltaTime);
+            this.transform.Translate(0, 0, Time.deltaTime * speed);
+        }
 
-            anim.SetBool("IsIdle", false);
+        if (Vector3.Distance(player.position, this.transform.position) < 10 && (angle < 90 || state == "pursuing")) 
+        {
+            state = "pusuing";
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction),rotSpeed*Time.deltaTime);
+
             if(direction.magnitude > .95)
             {
-                this.transform.Translate(0, 0, 0.05f);
+                this.transform.Translate(0, 0, Time.deltaTime * speed);
                 anim.SetBool("IsWalking", true);
                 anim.SetBool("IsAttacking", false);
             }
-
-            else if(Vector3.Distance(player.position, this.transform.position) < 1.1 && angle < 90)
+            else
             {
                 anim.SetBool("IsAttacking", true);
                 anim.SetBool("IsWalking", false);
             }
         }
-
         else
         {
-            anim.SetBool("IsIdle", true);
-            anim.SetBool("IsWalking", false);
+            anim.SetBool("IsWalking", true);
             anim.SetBool("IsAttacking", false);
+            state = "patrol";
         }
     }
 }
