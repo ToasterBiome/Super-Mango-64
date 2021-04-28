@@ -19,7 +19,7 @@ public class EnemyDamage : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<BetterPlayerController>().Damage(1);
+            other.GetComponent<BetterPlayerController>().Damage(1,false);
 
             /*
             Vector3 force = other.transform.position - transform.position;

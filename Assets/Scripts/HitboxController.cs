@@ -20,7 +20,7 @@ public class HitboxController : MonoBehaviour
     {
         if (other.tag == "Pickup")
         {
-            other.gameObject.GetComponent<BetterPlayerController>().Damage(box.damage);
+            other.gameObject.GetComponent<BetterPlayerController>().Damage(box.damage,false);
 
             /*
             Vector3 force = other.transform.position - box.transform.position;

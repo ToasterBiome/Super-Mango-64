@@ -15,7 +15,7 @@ public class DeathBarrier : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.gameObject.GetComponent<BetterPlayerController>().Die();
+            other.gameObject.GetComponent<BetterPlayerController>().Damage(999, true);
         }
     }
 }

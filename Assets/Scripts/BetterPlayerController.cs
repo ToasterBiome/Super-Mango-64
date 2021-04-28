@@ -68,11 +68,16 @@ public class BetterPlayerController : MonoBehaviour
 
     public Vector3 waterVelocity;
 
+    public Vector3 respawnPoint;
+    public Quaternion respawnRotation;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         animator = GetComponentInChildren<Animator>();
         pickupZone.controller = this;
+        respawnPoint = transform.position;
+        respawnRotation = transform.rotation;
     }
 
     // Update is called once per frame
@@ -139,11 +144,6 @@ public class BetterPlayerController : MonoBehaviour
         if (curHealth > maxHealth)
         {
             curHealth = maxHealth;
-        }
-
-        if (curHealth <= 0)
-        {
-            Die();
         }
 
         if (damageCooldown > 0)
@@ -290,12 +290,28 @@ public class BetterPlayerController : MonoBehaviour
         Application.LoadLevel(Application.loadedLevel);
     }
 
-    public void Damage(int dmg)
+    public IEnumerator DeathAnimation()
     {
-        if (damageCooldown == 0)
+        HUD.instance.vignetteAnimator.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(2f);
+        transform.position = respawnPoint;
+        transform.rotation = respawnRotation;
+        curHealth = maxHealth;
+        damageCooldown = 0;
+        HUD.instance.vignetteAnimator.SetTrigger("FadeIn");
+    }
+
+    public void Damage(int dmg,bool forceThroughCooldown)
+    {
+        if ((damageCooldown <= 0) || forceThroughCooldown)
         {
             CreateStars();
             curHealth -= dmg;
+            if(curHealth <= 0)
+            {
+                damageCooldown = 9999;
+                StartCoroutine(DeathAnimation());
+            }
         }
 
 

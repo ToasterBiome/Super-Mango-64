@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
+    public static HUD instance;
+
     public Sprite[] HeartSprites;
     public Image HeartUI;
     public Image GlovesIcon;
@@ -13,6 +15,20 @@ public class HUD : MonoBehaviour
     public BetterPlayerController player;
 
     public TextMeshProUGUI bananaText;
+
+    public Animator vignetteAnimator;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        } else
+        {
+            Debug.LogError("TWO UIs");
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
