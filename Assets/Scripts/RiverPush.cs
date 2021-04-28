@@ -16,8 +16,9 @@ public class RiverPush : MonoBehaviour
             player = other.gameObject.GetComponent<BetterPlayerController>();
             waterCount++;
             player.inWater = true;
+            player.waterVelocity = -Vector3.right * PushForce;
         }
-        
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -25,21 +26,13 @@ public class RiverPush : MonoBehaviour
         if (other.tag == "Player")
         {
             waterCount--;
-            if(waterCount <= 0)
+            if (waterCount <= 0)
             {
                 player.inWater = false;
+                player.waterVelocity = Vector3.zero;
             }
             playerInside = false;
             player = null;
-        }
-        
-    }
-
-    private void FixedUpdate()
-    {
-        if (playerInside)
-        {
-                player.transform.position = player.transform.position + (-Vector3.right * PushForce * Time.deltaTime);            
         }
     }
 }

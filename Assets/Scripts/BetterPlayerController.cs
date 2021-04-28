@@ -66,6 +66,8 @@ public class BetterPlayerController : MonoBehaviour
 
     public float waterJumpModifier = 0.8f;
 
+    public Vector3 waterVelocity;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -80,14 +82,14 @@ public class BetterPlayerController : MonoBehaviour
         float v = Input.GetAxisRaw("Vertical");
         horizontalMovement = new Vector3(h, 0, v);
 
-        if(!controller.isGrounded)
+        if(verticalMovement.y > Physics.gravity.y)
         {
             verticalMovement += Physics.gravity * Time.deltaTime;
         }
 
-        
+        Debug.Log(isGrounded());
 
-        if (controller.isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (isGrounded() && Input.GetKeyDown(KeyCode.Space))
         {
             if(inWater)
             {
@@ -101,7 +103,7 @@ public class BetterPlayerController : MonoBehaviour
             CreateDust();
         }
 
-        animator.SetBool("isInAir", !controller.isGrounded);
+        animator.SetBool("isInAir", !isGrounded());
 
 
 
@@ -125,6 +127,11 @@ public class BetterPlayerController : MonoBehaviour
                 speed -= decelerationSpeed * Time.deltaTime;
             }
             controller.Move(verticalMovement * Time.deltaTime);
+        }
+
+        if(inWater)
+        {
+            controller.Move(waterVelocity * Time.deltaTime);
         }
 
         animator.SetFloat("Speed", horizontalMovement.magnitude);
@@ -307,5 +314,10 @@ public class BetterPlayerController : MonoBehaviour
     void CreateStars()
     {
         stars.Play();
+    }
+
+    public bool isGrounded()
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, 0.55f);
     }
 }
