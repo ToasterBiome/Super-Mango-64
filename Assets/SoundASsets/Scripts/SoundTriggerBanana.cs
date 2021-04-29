@@ -5,7 +5,8 @@ using UnityEngine;
 public class SoundTriggerBanana : MonoBehaviour
 {
     private AudioSource source;
-    public AudioClip clip;
+    public AudioClip Bananaclip;
+    public AudioClip Waterclip;
     void Start()
     {
        
@@ -26,9 +27,19 @@ public class SoundTriggerBanana : MonoBehaviour
         {
             
                 Debug.Log("banana trigger");
-                source.PlayOneShot(clip);
+                source.PlayOneShot(Bananaclip);
             
         }
+       
+    }
+    private void OnCollisionEnter(Collision other)
+    {
+         if (other.gameObject.CompareTag("Water"))
+        {
 
+            Debug.Log("water trigger");
+            source.PlayOneShot(Waterclip);
+
+        }
     }
 }

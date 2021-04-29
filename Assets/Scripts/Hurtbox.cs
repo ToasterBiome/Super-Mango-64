@@ -6,11 +6,13 @@ public class Hurtbox : MonoBehaviour
 {
 
     public GameObject deatheffect;
+    private AudioSource source;
+    public AudioClip frogdeathSound;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class Hurtbox : MonoBehaviour
             {
                 Destroy(other.gameObject);
                 CreateParticles();
+                source.PlayOneShot(frogdeathSound);
             }
             Destroy(gameObject);
         }

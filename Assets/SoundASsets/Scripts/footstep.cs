@@ -2,13 +2,14 @@
 
 public class footstep : MonoBehaviour
 {
-    
+    public AudioClip ThrowSound;
         public AudioClip Feet_Dirt;
         public AudioClip Feet_Grass;
         public AudioClip jumpSound;
     public AudioClip landSound;
     public AudioClip pickupSound;
     private AudioClip stepSound;
+    
 
     
 
@@ -71,6 +72,9 @@ public class footstep : MonoBehaviour
             source.PlayOneShot(pickupSound);
         
     }
-   
+   public void Throw()
+    {
+        source.PlayOneShot(ThrowSound);
+    }
 
 }

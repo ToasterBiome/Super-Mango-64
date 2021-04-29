@@ -1308,6 +1308,7 @@ GameObject:
   - component: {fileID: 7599152501261722458}
   - component: {fileID: 7599152501261722460}
   - component: {fileID: 7599152501261722461}
+  - component: {fileID: 467163592461043105}
   m_Layer: 9
   m_Name: TreeFrog
   m_TagString: Pickup
@@ -1522,6 +1523,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deatheffect: {fileID: 3454662820111506492, guid: 22ad7da69da26d340a73246cf73483db,
     type: 3}
+  frogdeathSound: {fileID: 8300000, guid: 1ddec3fd9067fad4987e0ea0efb7e13a, type: 3}
+--- !u!114 &467163592461043105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7599152501261722457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d150ad3b2ce8d489b6f73569b9e8a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackSound: {fileID: 8300000, guid: 6d1ef80240721f143afedf45bf5ec925, type: 3}
+  JumpSound: {fileID: 8300000, guid: 5676b036735b5734696d482c14039210, type: 3}
 --- !u!1 &7810686519755699901
 GameObject:
   m_ObjectHideFlags: 0
