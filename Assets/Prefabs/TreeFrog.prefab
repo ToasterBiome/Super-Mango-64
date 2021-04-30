@@ -1521,6 +1521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27d5ef48dcf40b4ca4c6cd002631a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loot: {fileID: 4538617028575753657, guid: e0de8ceeaabb95243a61ffee1e3da261, type: 3}
   deatheffect: {fileID: 3454662820111506492, guid: 22ad7da69da26d340a73246cf73483db,
     type: 3}
   frogdeathSound: {fileID: 8300000, guid: 1ddec3fd9067fad4987e0ea0efb7e13a, type: 3}

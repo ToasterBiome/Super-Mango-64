@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hurtbox : MonoBehaviour
 {
-
+    public GameObject loot;
     public GameObject deatheffect;
     private AudioSource source;
     public AudioClip frogdeathSound;
@@ -29,6 +29,7 @@ public class Hurtbox : MonoBehaviour
             {
                 Destroy(other.gameObject);
                 CreateParticles();
+                DropBanana();
                 source.PlayOneShot(frogdeathSound);
             }
             Destroy(gameObject);
@@ -38,6 +39,11 @@ public class Hurtbox : MonoBehaviour
     void CreateParticles()
     {
         GameObject spawnedParticles = Instantiate(deatheffect, transform.position, Quaternion.identity);
-       
+
+    }
+    void DropBanana()
+    {
+        GameObject drop = Instantiate(loot, transform.position, Quaternion.identity);
+
     }
 }
