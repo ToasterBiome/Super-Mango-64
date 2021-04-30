@@ -7,6 +7,7 @@ public class CoinCollect : MonoBehaviour
 {
 
     public GameObject collect;
+    public int value;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,7 @@ public class CoinCollect : MonoBehaviour
         if(other.tag == "Player")
         {
             CreateParticles();
-            other.GetComponent<BetterPlayerController>().bananas++;
+            other.GetComponent<BetterPlayerController>().bananas += value;
             Destroy(gameObject);
         }
     }

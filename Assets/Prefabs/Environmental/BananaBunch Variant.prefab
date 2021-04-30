@@ -27,6 +27,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collect: {fileID: 6657968540246236329, guid: ad9baae8d17e5094b81e4245c8b25202, type: 3}
+  value: 5
 --- !u!1001 &5610787162208644272
 PrefabInstance:
   m_ObjectHideFlags: 0

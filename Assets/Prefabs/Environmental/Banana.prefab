@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collect: {fileID: 6657968540246236329, guid: 3a9b3b9cbf273c644adbe89e66be5543, type: 3}
+  value: 1
 --- !u!64 &4370381307352158
 MeshCollider:
   m_ObjectHideFlags: 0
