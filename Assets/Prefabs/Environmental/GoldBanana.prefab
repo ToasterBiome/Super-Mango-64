@@ -4873,6 +4873,7 @@ GameObject:
   - component: {fileID: 6181029788704637467}
   - component: {fileID: 4529027770763997136}
   - component: {fileID: 367221952010782930}
+  - component: {fileID: 2706440241015531108}
   m_Layer: 0
   m_Name: GoldBanana
   m_TagString: Untagged
@@ -5096,6 +5097,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &2706440241015531108
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5619291481703134919}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8209765609168101288
 GameObject:
   m_ObjectHideFlags: 0
