@@ -10,8 +10,21 @@ public class MainMenuController : MonoBehaviour
     public float fadeSpeed = 2f;
     public IEnumerator currentFade;
 
+    public Image fade;
+
     public void StartGame()
     {
+        StartCoroutine(GameFade());
+    }
+
+    public IEnumerator GameFade()
+    {
+        creditsGroup.gameObject.SetActive(true);
+        while (fade.color.a < 1)
+        {
+            fade.color = new Color(0, 0, 0, fade.color.a + Time.deltaTime * 4f);
+            yield return new WaitForEndOfFrame();
+        }
         SceneManager.LoadScene("W1L1");
     }
 
