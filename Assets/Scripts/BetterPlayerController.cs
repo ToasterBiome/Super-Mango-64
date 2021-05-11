@@ -131,6 +131,7 @@ public class BetterPlayerController : MonoBehaviour
             {
                 speed -= decelerationSpeed * Time.deltaTime;
             }
+
             controller.Move(verticalMovement * Time.deltaTime);
         }
 
