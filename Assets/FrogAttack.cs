@@ -14,6 +14,7 @@ public class FrogAttack : MonoBehaviour
     public float rotSpeed = 2f;
     public float speed = 2f;
     public float accuracyWP = 1.0f;
+    public float distanceNear = 5f;
 
     private void Start()
     {
@@ -40,7 +41,7 @@ public class FrogAttack : MonoBehaviour
             this.transform.Translate(0, 0, Time.deltaTime * speed);
         }
 
-        if (Vector3.Distance(player.position, this.transform.position) < 10 && (angle < 90 || state == "pursuing")) 
+        if (Vector3.Distance(player.position, this.transform.position) < distanceNear && (angle < 90 || state == "pursuing")) 
         {
             state = "pusuing";
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction),rotSpeed*Time.deltaTime);

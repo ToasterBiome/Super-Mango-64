@@ -1496,6 +1496,7 @@ MonoBehaviour:
   rotSpeed: 5
   speed: 2.5
   accuracyWP: 0.25
+  distanceNear: 5
 --- !u!65 &7599152501261722460
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1522,9 +1523,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loot: {fileID: 4538617028575753657, guid: e0de8ceeaabb95243a61ffee1e3da261, type: 3}
-  deatheffect: {fileID: 3454662820111506492, guid: 22ad7da69da26d340a73246cf73483db,
+  deatheffect: {fileID: 3708300002750070440, guid: b64ca4c5348a0eb4d84f322addc7feab,
     type: 3}
   frogdeathSound: {fileID: 8300000, guid: 1ddec3fd9067fad4987e0ea0efb7e13a, type: 3}
+  thePosition: {x: 0, y: 0, z: 0}
+  destroyedVersion: {fileID: 7643280463132022886, guid: 3334b695be6a1a74993490953b677d11,
+    type: 3}
 --- !u!114 &467163592461043105
 MonoBehaviour:
   m_ObjectHideFlags: 0

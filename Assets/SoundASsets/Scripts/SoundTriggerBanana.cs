@@ -30,7 +30,7 @@ public class SoundTriggerBanana : MonoBehaviour
                 source.PlayOneShot(Bananaclip);
             
         }
-       
+
     }
     private void OnCollisionEnter(Collision other)
     {
