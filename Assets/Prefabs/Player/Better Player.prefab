@@ -200,7 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 829e2d7f3843cab40a0e0495c997944a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: ada41349c77015842998dc7cb904e9ae, type: 3}
+  Bananaclip: {fileID: 0}
+  Waterclip: {fileID: 0}
 --- !u!143 &937808215140777358
 CharacterController:
   m_ObjectHideFlags: 0
@@ -265,6 +266,9 @@ MonoBehaviour:
   bananas: 0
   inWater: 0
   waterJumpModifier: 0.8
+  waterVelocity: {x: 0, y: 0, z: 0}
+  respawnPoint: {x: 0, y: 0, z: 0}
+  respawnRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &7901564430664093680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,6 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff31b7a3f39e20544b224525232e597b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ThrowSound: {fileID: 0}
   Feet_Dirt: {fileID: 0}
   Feet_Grass: {fileID: 8300000, guid: b882829849d4aaf49a1424bcebdba05a, type: 3}
   jumpSound: {fileID: 8300000, guid: a3916fa7b460afe45a2243630280afd5, type: 3}

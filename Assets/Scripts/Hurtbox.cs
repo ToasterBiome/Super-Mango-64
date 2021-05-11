@@ -9,6 +9,7 @@ public class Hurtbox : MonoBehaviour
     private AudioSource source;
     public AudioClip frogdeathSound;
     public Vector3 thePosition;
+    public GameObject destroyedVersion;
 
     // Start is called before the first frame update
     void Start()
@@ -28,12 +29,16 @@ public class Hurtbox : MonoBehaviour
         {
             if(other.GetComponent<Pickup>().type == Pickup.PickupType.Barrel)
             {
+                
                 Destroy(other.gameObject);
                 CreateParticles();
                 DropBanana();
-                source.PlayOneShot(frogdeathSound);
+                
             }
             Destroy(gameObject);
+            Instantiate(destroyedVersion, other.transform.position, other.transform.rotation);
+            
+
         }
     }
 
@@ -41,6 +46,7 @@ public class Hurtbox : MonoBehaviour
     {
         thePosition = transform.TransformPoint(Vector3.up * 1 / 2);
         GameObject spawnedParticles = Instantiate(deatheffect, thePosition, Quaternion.identity);
+        source.PlayOneShot(frogdeathSound);
 
     }
     void DropBanana()
@@ -48,5 +54,10 @@ public class Hurtbox : MonoBehaviour
         thePosition = transform.TransformPoint(Vector3.up * 1/2);
         GameObject drop = Instantiate(loot, thePosition, Quaternion.identity);
 
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(5);
     }
 }
