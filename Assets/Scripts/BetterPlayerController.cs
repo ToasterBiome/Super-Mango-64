@@ -335,6 +335,6 @@ public class BetterPlayerController : MonoBehaviour
 
     public bool isGrounded()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, 0.55f);
+        return Physics.Raycast(transform.position, -Vector3.up, 0.535f);
     }
 }
