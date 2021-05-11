@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
         Time.timeScale = .5f;
+        HUD.instance.vignetteAnimator.SetTrigger("FadeOut");
         Invoke("Reset", resetDelay);
     }
 
