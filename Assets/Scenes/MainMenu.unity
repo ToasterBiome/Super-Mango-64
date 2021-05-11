@@ -2065,10 +2065,10 @@ RectTransform:
   m_Father: {fileID: 1458310948}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &924039799
 GameObject:
@@ -2151,11 +2151,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 50dc25c910e8c2142984d2172448f926,
-        type: 3}
-      propertyPath: m_Name
-      value: Mango_v2
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 50dc25c910e8c2142984d2172448f926,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2265,6 +2260,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 50dc25c910e8c2142984d2172448f926,
+        type: 3}
+      propertyPath: m_Name
+      value: Mango_v2
       objectReference: {fileID: 0}
     - target: {fileID: 8451250692812394662, guid: 50dc25c910e8c2142984d2172448f926,
         type: 3}
@@ -2429,7 +2429,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1144274761}
-  m_LocalRotation: {x: -0.1683129, y: 0.05151257, z: -0.0364604, w: 0.9837113}
+  m_LocalRotation: {x: -0.1683129, y: 0.05151256, z: -0.036460392, w: 0.9837113}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
