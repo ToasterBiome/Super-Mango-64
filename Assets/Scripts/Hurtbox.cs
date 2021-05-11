@@ -8,6 +8,7 @@ public class Hurtbox : MonoBehaviour
     public GameObject deatheffect;
     private AudioSource source;
     public AudioClip frogdeathSound;
+    public Vector3 thePosition;
 
     // Start is called before the first frame update
     void Start()
@@ -38,12 +39,14 @@ public class Hurtbox : MonoBehaviour
 
     void CreateParticles()
     {
-        GameObject spawnedParticles = Instantiate(deatheffect, transform.position, Quaternion.identity);
+        thePosition = transform.TransformPoint(Vector3.up * 1 / 2);
+        GameObject spawnedParticles = Instantiate(deatheffect, thePosition, Quaternion.identity);
 
     }
     void DropBanana()
     {
-        GameObject drop = Instantiate(loot, transform.position, Quaternion.identity);
+        thePosition = transform.TransformPoint(Vector3.up * 1/2);
+        GameObject drop = Instantiate(loot, thePosition, Quaternion.identity);
 
     }
 }
