@@ -12,6 +12,11 @@ public class MainMenuController : MonoBehaviour
 
     public Image fade;
 
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     public void StartGame()
     {
         StartCoroutine(GameFade());

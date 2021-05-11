@@ -26,4 +26,12 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("MainMenu");
     }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            Win();
+        }
+    }
 }
