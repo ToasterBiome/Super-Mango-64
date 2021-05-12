@@ -74,13 +74,13 @@ Material:
     - _BumpMap_ST: {r: 1, g: 1, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Fresnel_ST: {r: 1, g: 1, b: 0, a: 0}
-    - _HorizonColor: {r: 0.61089355, g: 0.80064976, b: 0.9056604, a: 1}
+    - _HorizonColor: {r: 0.38074043, g: 0.6925382, b: 0.8679245, a: 1}
     - _HueVariationColor: {r: 1, g: 0.5, b: 0, a: 0.1}
     - _MainTex_ST: {r: 1, g: 1, b: 0, a: 0}
     - _ReflectionTex_ST: {r: 1, g: 1, b: 0, a: 0}
     - _ReflectiveColorCube_ST: {r: 1, g: 1, b: 0, a: 0}
     - _ReflectiveColor_ST: {r: 1, g: 1, b: 0, a: 0}
-    - _RefrColor: {r: 0.3160377, g: 0.7575831, b: 1, a: 1}
+    - _RefrColor: {r: 0.6367924, g: 0.8705812, b: 1, a: 1}
     - _RefractionTex_ST: {r: 1, g: 1, b: 0, a: 0}
     - _SubsurfaceColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1002 &2100001
