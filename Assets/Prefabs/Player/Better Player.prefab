@@ -269,6 +269,7 @@ MonoBehaviour:
   waterVelocity: {x: 0, y: 0, z: 0}
   respawnPoint: {x: 0, y: 0, z: 0}
   respawnRotation: {x: 0, y: 0, z: 0, w: 0}
+  thirdPersonCamera: {fileID: 8802341612875849988}
 --- !u!114 &7901564430664093680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5317,8 +5318,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8802341611526068218}
-  m_LocalRotation: {x: 0.29714638, y: 0.5365632, z: -0.20935687, w: 0.76155996}
-  m_LocalPosition: {x: -0.0000019073489, y: 0, z: 2.2737368e-13}
+  m_LocalRotation: {x: 0.2971464, y: 0.5365633, z: -0.20935693, w: 0.7615599}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8802341612584442365}
@@ -5518,7 +5519,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8802341612035080404}
   m_LocalRotation: {x: 0.2971464, y: 0.5365633, z: -0.20935693, w: 0.7615599}
-  m_LocalPosition: {x: -0.0000019073489, y: 0, z: 2.2737368e-13}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8802341613097888135}
@@ -5591,8 +5592,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8802341612447033112}
-  m_LocalRotation: {x: 0.29714638, y: 0.5365632, z: -0.20935687, w: 0.76155996}
-  m_LocalPosition: {x: -0.0000019073489, y: 0, z: 2.2737368e-13}
+  m_LocalRotation: {x: 0.2971464, y: 0.5365633, z: -0.20935693, w: 0.7615599}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8802341611648170914}
@@ -11277,10 +11278,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2040001961004688324}
     m_Modifications:
-    - target: {fileID: 100002, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
-      propertyPath: m_Name
-      value: BlobShadowProjector
-      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -11336,6 +11333,10 @@ PrefabInstance:
     - target: {fileID: 400002, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.0000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
+      propertyPath: m_Name
+      value: BlobShadowProjector
       objectReference: {fileID: 0}
     - target: {fileID: 11900000, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
       propertyPath: m_NearClipPlane

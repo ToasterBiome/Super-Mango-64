@@ -12,6 +12,14 @@ public class MainMenuController : MonoBehaviour
 
     public Image fade;
 
+    //option stuff
+    public GameObject optionsMenu;
+
+    public Slider sensitivitySlider;
+    public Toggle invertToggle;
+
+    bool cameraInverted;
+    float cameraSensitivity;
     void Start()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -72,5 +80,36 @@ public class MainMenuController : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         creditsGroup.gameObject.SetActive(false);
+    }
+
+    public void OpenOptions()
+    {
+
+        invertToggle.isOn = (PlayerPrefs.GetInt("cameraInvert", 0) == 1 ? true : false);
+        sensitivitySlider.value = PlayerPrefs.GetFloat("cameraSensitivity", 1);
+        optionsMenu.SetActive(true);
+    }
+
+    public void CloseOptions()
+    {
+        //close without saving?
+        optionsMenu.SetActive(false);
+    }
+
+    public void SaveOptions()
+    {
+        //save these
+        PlayerPrefs.SetInt("cameraInvert", cameraInverted ? 1 : 0);
+        PlayerPrefs.SetFloat("cameraSensitivity", cameraSensitivity);
+    }
+
+    public void OptionInvertCamera(bool value)
+    {
+        cameraInverted = value;
+    }
+
+    public void OptionCameraSensitivity(float value)
+    {
+        cameraSensitivity = value;
     }
 }

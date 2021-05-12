@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Cinemachine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static Pickup;
@@ -71,6 +72,8 @@ public class BetterPlayerController : MonoBehaviour
     public Vector3 respawnPoint;
     public Quaternion respawnRotation;
 
+    public CinemachineFreeLook thirdPersonCamera;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -78,6 +81,9 @@ public class BetterPlayerController : MonoBehaviour
         pickupZone.controller = this;
         respawnPoint = transform.position;
         respawnRotation = transform.rotation;
+
+        thirdPersonCamera.m_XAxis.m_MaxSpeed = 280 + (280 * PlayerPrefs.GetFloat("cameraSensitivity", 1));
+        thirdPersonCamera.m_YAxis.m_InvertInput = (PlayerPrefs.GetInt("cameraInvert", 0) == 1);
     }
 
     // Update is called once per frame
