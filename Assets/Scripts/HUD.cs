@@ -15,6 +15,7 @@ public class HUD : MonoBehaviour
     public BetterPlayerController player;
 
     public TextMeshProUGUI bananaText;
+    public TextMeshProUGUI timerText;
 
     public Animator vignetteAnimator;
 

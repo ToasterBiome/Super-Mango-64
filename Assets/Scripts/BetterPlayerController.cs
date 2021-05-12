@@ -85,14 +85,19 @@ public class BetterPlayerController : MonoBehaviour
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
+
+        //timer does not start until you move
+        if(h+v != 0 && !GameManager.instance.timerStarted)
+        {
+            GameManager.instance.StartTimer();
+        }
+
         horizontalMovement = new Vector3(h, 0, v);
 
         if(verticalMovement.y > Physics.gravity.y)
         {
             verticalMovement += Physics.gravity * Time.deltaTime;
         }
-
-        Debug.Log(isGrounded());
 
         if (isGrounded() && Input.GetKeyDown(KeyCode.Space))
         {
