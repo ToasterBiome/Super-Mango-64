@@ -28,9 +28,9 @@ TagManager:
   - Enemy
   - Breadcrumb
   - Waypoint
-  - 
-  - 
-  - 
+  - Not ground
+  - PointLight
+  - Spotlight
   - 
   - 
   - 
