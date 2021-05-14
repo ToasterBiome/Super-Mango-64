@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class HUD : MonoBehaviour
 
     public TextMeshProUGUI bananaText;
     public TextMeshProUGUI timerText;
+    public TextMeshProUGUI bestTimeText;
 
     public Animator vignetteAnimator;
 
@@ -35,6 +37,11 @@ public class HUD : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<BetterPlayerController>();
         GlovesIcon.enabled = false;
+
+        TimeSpan span = TimeSpan.FromSeconds((double)PlayerPrefs.GetFloat("bestTime", 0f));
+        string formattedSpan = $"{span.Minutes:D2}:{span.Seconds:D2}.{span.Milliseconds:D3}";
+        bestTimeText.text = $"Best Time: {formattedSpan}";
+
     }
 
     void Update()
