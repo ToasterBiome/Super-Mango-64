@@ -137,8 +137,16 @@ public class GameManager : MonoBehaviour
 
         float seconds = Mathf.FloorToInt(time % 60);
 
+        TimeSpan span = TimeSpan.FromSeconds((double)time);
+
+        string formattedSpan = $"{span.Minutes:D2}:{span.Seconds:D2}.{span.Milliseconds:D3}";
+
         //ui stuff
-        HUD.instance.timerText.text = $"{minutes:00}:{seconds:00}";
+        if(HUD.instance.timerText != null)
+        {
+            HUD.instance.timerText.text = formattedSpan;
+        }
+        
     }
 
     public void StartTimer()

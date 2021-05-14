@@ -27,18 +27,20 @@ public class Hurtbox : MonoBehaviour
     {
         if(other.tag == "Pickup")
         {
-            if(other.GetComponent<Pickup>().type == Pickup.PickupType.Barrel)
+            Pickup otherPickup = other.GetComponent<Pickup>();
+            if (otherPickup != null)
             {
-                
-                Destroy(other.gameObject);
-                CreateParticles();
-                DropBanana();
-                
-            }
-            Destroy(gameObject);
-            Instantiate(destroyedVersion, other.transform.position, other.transform.rotation);
-            
+                if (otherPickup.type == Pickup.PickupType.Barrel)
+                {
 
+                    Destroy(other.gameObject);
+                    CreateParticles();
+                    DropBanana();
+
+                }
+                Destroy(gameObject);
+                Instantiate(destroyedVersion, other.transform.position, other.transform.rotation);
+            }
         }
     }
 

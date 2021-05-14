@@ -47,7 +47,10 @@ public class Lilypad : MonoBehaviour
 
     public void UpdateAnimation()
     {
-        padAnim.SetBool(padAnimParam, isOnPad);
+        if(padAnim != null)
+        {
+            padAnim.SetBool(padAnimParam, isOnPad);
+        }
     }
 
     IEnumerator UpdateLilypad(float waitTime)

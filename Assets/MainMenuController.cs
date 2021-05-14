@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,11 +20,16 @@ public class MainMenuController : MonoBehaviour
     public Slider sensitivitySlider;
     public Toggle invertToggle;
 
+    public TextMeshProUGUI bestTimeText;
+
     bool cameraInverted;
     float cameraSensitivity;
     void Start()
     {
         Cursor.lockState = CursorLockMode.None;
+        TimeSpan span = TimeSpan.FromSeconds((double)PlayerPrefs.GetFloat("bestTime", 0f));
+        string formattedSpan = $"{span.Minutes:D2}:{span.Seconds:D2}.{span.Milliseconds:D3}";
+        bestTimeText.text = $"Best Time: {formattedSpan}";
     }
 
     public void StartGame()
