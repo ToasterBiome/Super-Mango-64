@@ -8,11 +8,17 @@ using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
+    public Animator animator;
+    public bool isGameStarting = false;
+    public FaceController wakeUp;
+    public ParticleSystem zees;
+
     public CanvasGroup creditsGroup;
     public float fadeSpeed = 2f;
     public IEnumerator currentFade;
 
     public Image fade;
+
 
     //option stuff
     public GameObject optionsMenu;
@@ -27,6 +33,7 @@ public class MainMenuController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.None;
+        wakeUp.ChangeFace("Closed_eyes", "OOO_OOO");
         TimeSpan span = TimeSpan.FromSeconds((double)PlayerPrefs.GetFloat("bestTime", 0f));
         string formattedSpan = $"{span.Minutes:D2}:{span.Seconds:D2}.{span.Milliseconds:D3}";
         bestTimeText.text = $"Best Time: {formattedSpan}";
@@ -34,11 +41,20 @@ public class MainMenuController : MonoBehaviour
 
     public void StartGame()
     {
-        StartCoroutine(GameFade());
+        if (isGameStarting == false)
+        {
+            isGameStarting = true;
+            StartCoroutine(GameFade());
+        }
+        
     }
 
     public IEnumerator GameFade()
     {
+        animator.SetTrigger("GameStart");
+        zees.Stop();
+        wakeUp.ChangeFace("Default_Eyes", "smile");
+        yield return new WaitForSeconds(5);
         creditsGroup.gameObject.SetActive(true);
         while (fade.color.a < 1)
         {
