@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Socket.Quobject.SocketIoClientDotNet.Client;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,8 +11,6 @@ public class GameManager : MonoBehaviour
 
     public float time;
     public bool timerStarted = false;
-
-    protected QSocket socket = null;
 
     public BetterPlayerController player;
     private void Awake()
@@ -87,7 +84,7 @@ public class GameManager : MonoBehaviour
 
     void OnDestroy()
     {
-        if(socket != null) socket.Close();
+        //if(socket != null) socket.Close();
     }
 
     public IEnumerator EndCutscene() //do not ever do this ever, it's horrible programming, BE BETTER THAN ME! - Alex D.
