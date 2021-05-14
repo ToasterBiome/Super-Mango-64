@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 6427802475742906950}
   - component: {fileID: 4235166028651625196}
   - component: {fileID: 800145890}
-  - component: {fileID: 8153370558378959347}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Pickup
@@ -256,15 +255,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 2
---- !u!114 &8153370558378959347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8123820142313473527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 324e9f5b968e9974ba5035d6a3174bf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

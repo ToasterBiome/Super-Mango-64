@@ -29,8 +29,8 @@ public class FrogAttack : MonoBehaviour
 
         if(state == "patrol" && waypoints.Length > 0)
         {
-            anim.SetBool("isIdle", false);
-            anim.SetBool("isWalking", true);
+            anim.SetBool("IsIdle", false);
+            anim.SetBool("IsWalking", true);
             if(Vector3.Distance(waypoints[currentWP].transform.position, transform.position) < accuracyWP)
             {
                 currentWP = Random.Range(0, waypoints.Length);
