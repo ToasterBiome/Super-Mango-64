@@ -17,6 +17,14 @@ public class RiverPush : MonoBehaviour
             waterCount++;
             if(waterCount == 1)
             {
+                RaycastHit hit;
+                if (Physics.Raycast(player.transform.position, -player.transform.up, out hit))
+                {
+                    player.fountain.transform.position = hit.point;
+                    player.splash.transform.position = hit.point;
+                }
+
+                
                 player.fountain.Play();
             }
             player.inWater = true;
