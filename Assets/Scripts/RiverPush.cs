@@ -17,7 +17,7 @@ public class RiverPush : MonoBehaviour
             waterCount++;
             if(waterCount == 1)
             {
-                //this will play once when he enters the water
+                player.fountain.Play();
             }
             player.inWater = true;
             player.waterVelocity = -Vector3.right * PushForce;

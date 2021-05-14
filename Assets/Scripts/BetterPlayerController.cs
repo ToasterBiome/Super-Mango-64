@@ -58,6 +58,8 @@ public class BetterPlayerController : MonoBehaviour
     //particle effects
     public ParticleSystem dust;
     public ParticleSystem stars;
+    public ParticleSystem fountain;
+    public ParticleSystem splash;
 
     //banana counter
 
@@ -110,6 +112,8 @@ public class BetterPlayerController : MonoBehaviour
             if(inWater)
             {
                 verticalMovement.y = jumpHeight * waterJumpModifier;
+               
+
             } else
             {
                 verticalMovement.y = jumpHeight;
@@ -149,6 +153,7 @@ public class BetterPlayerController : MonoBehaviour
         if(inWater)
         {
             controller.Move(waterVelocity * Time.deltaTime);
+            CreateSplash();
         }
 
         animator.SetFloat("Speed", horizontalMovement.magnitude);
@@ -342,6 +347,11 @@ public class BetterPlayerController : MonoBehaviour
     void CreateStars()
     {
         stars.Play();
+    }
+
+    void CreateSplash()
+    {
+        splash.Play();
     }
 
     public bool isGrounded()
