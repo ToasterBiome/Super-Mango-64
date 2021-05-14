@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public bool timerStarted = false;
 
     protected QSocket socket = null;
+
+    public BetterPlayerController player;
     private void Awake()
     {
         if (instance == null)
@@ -56,6 +58,9 @@ public class GameManager : MonoBehaviour
             Debug.Log("Socket already exists");
         }
         */
+
+        player = FindObjectOfType<BetterPlayerController>();
+        StartCoroutine(EndCutscene());
         
     }
 
@@ -64,10 +69,19 @@ public class GameManager : MonoBehaviour
         if(socket != null) socket.Close();
     }
 
+    public IEnumerator EndCutscene() //do not ever do this ever, it's horrible programming, BE BETTER THAN ME! - Alex D.
+    {
+        //if we simply know the time of the introductory cutscene....
+        yield return new WaitForSeconds(20f); //we can just wait that long and then enable the player.
+        player.canMove = true;
+        yield return null;
+    }
+
     public void Win()
     {
         StopTimer();
-        Time.timeScale = .5f;
+        Time.timeScale = 1f;
+        StartCoroutine(player.WinAnimation());
         HUD.instance.vignetteAnimator.SetTrigger("FadeOut");
         Invoke("Reset", resetDelay);
     }

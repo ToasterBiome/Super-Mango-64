@@ -76,6 +76,9 @@ public class BetterPlayerController : MonoBehaviour
 
     public CinemachineFreeLook thirdPersonCamera;
 
+    //cannot move juice
+    public bool canMove = false;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -93,6 +96,12 @@ public class BetterPlayerController : MonoBehaviour
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
+
+        if(!canMove)
+        {
+            h = 0;
+            v = 0;
+        }
 
         //timer does not start until you move
         if(h+v != 0 && !GameManager.instance.timerStarted)
@@ -316,6 +325,17 @@ public class BetterPlayerController : MonoBehaviour
         curHealth = maxHealth;
         damageCooldown = 0;
         HUD.instance.vignetteAnimator.SetTrigger("FadeIn");
+    }
+
+    public IEnumerator WinAnimation()
+    {
+        canMove = false;
+        thirdPersonCamera.m_XAxis.m_InputAxisName = ""; //why does cinemachine make you do this instead of a bool?
+        thirdPersonCamera.m_YAxis.m_InputAxisName = "";
+        transform.rotation = Quaternion.Euler(transform.rotation.x, thirdPersonCamera.m_XAxis.Value + 180f, transform.rotation.z);
+        animator.SetTrigger("WinAnimation");
+        yield return null;
+
     }
 
     public void Damage(int dmg,bool forceThroughCooldown)
