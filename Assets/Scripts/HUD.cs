@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
@@ -20,6 +21,8 @@ public class HUD : MonoBehaviour
     public TextMeshProUGUI bestTimeText;
 
     public Animator vignetteAnimator;
+
+    public GameObject quitMenu;
 
     private void Awake()
     {
@@ -42,12 +45,23 @@ public class HUD : MonoBehaviour
         string formattedSpan = $"{span.Minutes:D2}:{span.Seconds:D2}.{span.Milliseconds:D3}";
         bestTimeText.text = $"Best Time: {formattedSpan}";
 
+        Cursor.visible = false;
+
     }
 
     void Update()
     {
         
-
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(quitMenu.activeInHierarchy)
+            {
+                CloseQuitMenu();
+            } else
+            {
+                OpenQuitMenu();
+            }
+        }
 
         if(player == null)
         {
@@ -61,6 +75,32 @@ public class HUD : MonoBehaviour
         }
         bananaText.text = player.bananas.ToString();
 
+    }
+
+    public void OpenQuitMenu()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        quitMenu.SetActive(true);
+    }
+
+    public void CloseQuitMenu()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        quitMenu.SetActive(false);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        StartCoroutine(GoToMainMenu());
+    }
+
+    public IEnumerator GoToMainMenu()
+    {
+        HUD.instance.vignetteAnimator.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("MainMenu");
     }
 
 }
