@@ -60,7 +60,28 @@ public class GameManager : MonoBehaviour
         */
 
         player = FindObjectOfType<BetterPlayerController>();
-        StartCoroutine(EndCutscene());
+
+        GameObject cutscene = GameObject.Find("Cutscene");
+
+        if (cutscene != null)
+        {
+            if (cutscene.activeInHierarchy)
+            {
+                StartCoroutine(EndCutscene());
+            }
+            else
+            {
+                player.canMove = true;
+            }
+        }
+        else
+        {
+            player.canMove = true;
+        }
+
+
+
+        
         
     }
 
@@ -82,8 +103,16 @@ public class GameManager : MonoBehaviour
         StopTimer();
         Time.timeScale = 1f;
         StartCoroutine(player.WinAnimation());
+        StartCoroutine(DoWin());
+        PlayerPrefs.SetFloat("bestTime", time);
+    }
+
+    public IEnumerator DoWin()
+    {
+        yield return new WaitForSeconds(3f);
         HUD.instance.vignetteAnimator.SetTrigger("FadeOut");
         Invoke("Reset", resetDelay);
+        yield return null;
     }
 
     private void Reset()
