@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour
         string formattedSpan = $"{span.Minutes:D2}:{span.Seconds:D2}.{span.Milliseconds:D3}";
 
         //ui stuff
-        if(HUD.instance.timerText != null)
+        if(HUD.instance != null)
         {
             HUD.instance.timerText.text = formattedSpan;
         }
