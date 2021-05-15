@@ -376,6 +376,44 @@ public class BetterPlayerController : MonoBehaviour
 
     public bool isGrounded()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, 0.535f);
+        bool multiCheck = false;
+
+        //center
+        if(Physics.Raycast(transform.position, -Vector3.up, 0.535f))
+        {
+            multiCheck = true;
+        }
+
+        //right
+        if (Physics.Raycast(transform.position + new Vector3(0.5f,0,0), -Vector3.up, 0.55f))
+        {
+            multiCheck = true;
+        }
+
+        //left
+        if (Physics.Raycast(transform.position + new Vector3(-0.5f, 0, 0), -Vector3.up, 0.55f))
+        {
+            multiCheck = true;
+        }
+
+        //forward maybe?
+        if (Physics.Raycast(transform.position + new Vector3(0, 0, 0.25f), -Vector3.up, 0.55f))
+        {
+            multiCheck = true;
+        }
+
+        //maybe backwards
+        if (Physics.Raycast(transform.position + new Vector3(0, 0, -0.25f), -Vector3.up, 0.55f))
+        {
+            multiCheck = true;
+        }
+
+        return multiCheck;
+        //return Physics.Raycast(transform.position, -Vector3.up, 0.535f);
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(transform.position, transform.position + (-Vector3.up * 0.535f));
     }
 }
