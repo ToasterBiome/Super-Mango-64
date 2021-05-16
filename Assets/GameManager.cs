@@ -101,7 +101,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         StartCoroutine(player.WinAnimation());
         StartCoroutine(DoWin());
-        PlayerPrefs.SetFloat("bestTime", time);
+        if(time < PlayerPrefs.GetFloat("bestTime",9999))
+        {
+            PlayerPrefs.SetFloat("bestTime", time);
+        }
+        
     }
 
     public IEnumerator DoWin()
