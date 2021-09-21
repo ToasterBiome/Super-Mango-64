@@ -94,40 +94,41 @@ public class BetterPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        float h = Input.GetAxisRaw("LeftHorizontal");
+        float v = Input.GetAxisRaw("LeftVertical");
 
-        if(!canMove)
+        if (!canMove)
         {
             h = 0;
             v = 0;
         }
 
         //timer does not start until you move
-        if(h+v != 0 && !GameManager.instance.timerStarted)
+        if (h + v != 0 && !GameManager.instance.timerStarted)
         {
             GameManager.instance.StartTimer();
         }
 
         horizontalMovement = new Vector3(h, 0, v);
 
-        if(verticalMovement.y > Physics.gravity.y)
+        if (verticalMovement.y > Physics.gravity.y)
         {
             verticalMovement += Physics.gravity * Time.deltaTime;
         }
 
-        if (isGrounded() && Input.GetKeyDown(KeyCode.Space))
+        if (isGrounded() && Input.GetButtonDown("Jump"))
         {
-            if(inWater)
+            if (inWater)
             {
                 verticalMovement.y = jumpHeight * waterJumpModifier;
-               
 
-            } else
+
+            }
+            else
             {
                 verticalMovement.y = jumpHeight;
             }
-            
+
             animator.SetTrigger("Jump");
             CreateDust();
         }
@@ -138,7 +139,7 @@ public class BetterPlayerController : MonoBehaviour
 
         if (horizontalMovement.magnitude >= 0.1f)
         {
-            if(speed < maxSpeed)
+            if (speed < maxSpeed)
             {
                 speed += accelerationSpeed * Time.deltaTime;
             }
@@ -149,9 +150,10 @@ public class BetterPlayerController : MonoBehaviour
             Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDirection.normalized * speed * Time.deltaTime + verticalMovement * Time.deltaTime);
 
-        } else
+        }
+        else
         {
-            if (speed > 0 && horizontalMovement.magnitude<0.1f)
+            if (speed > 0 && horizontalMovement.magnitude < 0.1f)
             {
                 speed -= decelerationSpeed * Time.deltaTime;
             }
@@ -159,7 +161,7 @@ public class BetterPlayerController : MonoBehaviour
             controller.Move(verticalMovement * Time.deltaTime);
         }
 
-        if(inWater)
+        if (inWater)
         {
             controller.Move(waterVelocity * Time.deltaTime);
             CreateSplash();
@@ -181,10 +183,10 @@ public class BetterPlayerController : MonoBehaviour
             }
         }
 
-        if(currentPickup)
+        if (currentPickup)
         {
             trajTime += Time.deltaTime;
-            if(trajTime >= maxTrajTime)
+            if (trajTime >= maxTrajTime)
             {
                 trajTime -= maxTrajTime;
                 //move it back
@@ -194,7 +196,7 @@ public class BetterPlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButtonDown("Fire1"))
         {
             if (animator.GetBool("Holding"))
             {
@@ -206,7 +208,7 @@ public class BetterPlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetButtonDown("Fire2"))
         {
             PickupThrow();
 
@@ -283,7 +285,7 @@ public class BetterPlayerController : MonoBehaviour
         animator.SetTrigger("PickupThrow");
         animator.SetBool("Holding", false);
 
-        if(trajectoryDummy)
+        if (trajectoryDummy)
         {
             Destroy(trajectoryDummy);
             trajectoryDummy = null;
@@ -338,13 +340,13 @@ public class BetterPlayerController : MonoBehaviour
 
     }
 
-    public void Damage(int dmg,bool forceThroughCooldown)
+    public void Damage(int dmg, bool forceThroughCooldown)
     {
         if ((damageCooldown <= 0) || forceThroughCooldown)
         {
             CreateStars();
             curHealth -= dmg;
-            if(curHealth <= 0)
+            if (curHealth <= 0)
             {
                 damageCooldown = 9999;
                 StartCoroutine(DeathAnimation());
@@ -379,13 +381,13 @@ public class BetterPlayerController : MonoBehaviour
         bool multiCheck = false;
 
         //center
-        if(Physics.Raycast(transform.position, -Vector3.up, 0.535f))
+        if (Physics.Raycast(transform.position, -Vector3.up, 0.535f))
         {
             multiCheck = true;
         }
 
         //right
-        if (Physics.Raycast(transform.position + new Vector3(0.5f,0,0), -Vector3.up, 0.55f))
+        if (Physics.Raycast(transform.position + new Vector3(0.5f, 0, 0), -Vector3.up, 0.55f))
         {
             multiCheck = true;
         }
